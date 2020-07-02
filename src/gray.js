@@ -11,14 +11,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 // variables
-var monEntier = 5;
+var monEntier = 7;
 var maChaine = "Lalekou Giray Tchad";
 var monBooleen = false;
 var monBooleen2 = true;
@@ -27,7 +21,7 @@ console.log("------------------------");
 console.log(monEntier, monBooleen, monBooleen2);
 console.log("------------------------");
 // constantes, Valeurs énumérées(enum)
-var PI = 3.14;
+var PI = 3.15;
 console.log(PI);
 // fonctions et procedures(fonction flechés),  Paramètre optionnel
 function somme(a, b) {
@@ -142,8 +136,5 @@ var MaClass5 = /** @class */ (function () {
     MaClass5.prototype.test = function () {
         console.log("lalekou");
     };
-    __decorate([
-        log()
-    ], MaClass5.prototype, "test");
     return MaClass5;
 }());
