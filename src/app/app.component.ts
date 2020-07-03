@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Gray Tchad Formation Angular';
+  title = 'Gray Tchad Formation Angular Modifié';
+
 }

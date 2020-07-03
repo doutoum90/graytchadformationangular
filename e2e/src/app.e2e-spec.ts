@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('graytchadformationangular app is running!');
+    expect(page.getTitleText()).toEqual('Gray Tchad Formation Angular est content de vous acceuillir à bord !!!');
   });
 
   afterEach(async () => {
