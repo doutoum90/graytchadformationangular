@@ -1,62 +1,40 @@
-# Langage Angular2
-## Quelques notions de base
+# Angular 1: Annonce
 
-|||
-|------------|----------------|
-|	Mozilla | JavaScript|
-|	IE	| JScript|
-## la norme ECMAScript ES
-* ES1 (1997)
-* ES2 (1998)
-* ES3 (1999)
-* ES4 (2007)
-* ES5 (2009)
-* ES6 (2015)
-* ES7 (2016)
-* ES8 (2017)
-* ES9 (2018)
-* ES10 (2019)
-* ES11(2020)
+## Aperçu général
 
+**Definition**: framework multiplateforme réalisé par google en 2009. 
 
-## Quelques fonctionnalités du ES6 ou ES2015
-* Modules
-* classes
-* portée lexicale au niveau des blocs
-* itérateurs et générateurs
-* promesses pour la programmation asynchrone
-* pattern de destructuration
-* optimisation des appels terminaux
-* nouvelles structures de données (tableaux associatifs, ensembles, tableaux binaires)
-* support de caractères Unicode supplémentaires dans les chaînes de caractères  
-* les expressions rationnelles
-* possibilité d'extension des structures de données prédéfinies.
+## Motivation
 
-## Typescript
+*  demande très élévé
+* **documentation**: très documenté 
+  + [documentation officiel](https://angular.io/docs)
+  + [communauté très réactive](https://stackoverflow.com/questions/tagged/angular) 
+* **montée de version**: tout les 6 mois.
 
-Auteur : Microsoft
+## Réalisation
 
-Orienté Objet, transpilé, Imperatif
+un blog technique
+**nom du blog** : ***agourou*** 
+**logo**: à definir
+**description**: 
+un site servant de partage d'idée technique. 
 
-![](../images/typescript.png)
+* gestion d'utilisateur:
+  + inscription du user
+  + validation du compte par l'admin
+* gestion articles
+  + ajout d'article par un user habilité
+  + modification d'un article par un user habilité
+  + suppression d'un article par l'admin
+  + visionnante d'un article par tout le monde sans être authentifié
+* gestion de categorie:
+  + ajout, modification par un user habilité
+  + supression par l'admin
 
+## déploiement
 
-## Transpileur
+les sources du projet seront hébergés sur ce compte [GitHub](https://github.com/doutoum90) et l'application sera déployé sur [firebase](https://firebase.google.com/?gclid=Cj0KCQjw0Mb3BRCaARIsAPSNGpXZwLe1Q1WUMZ2eVh43s9-npKh85ejIB3okT54le8OtmsXAZcm6sKwaAt8MEALw_wcB).
+Nous utiliserons les workflows GitHub pour le déploiement de l'application après chaque push.
 
-* Traceur, un projet Google, historiquement le premier, mais maintenant non-maintenu.
-* Babeljs, un projet démarré par Sebastian McKenzie, un jeune développeur de 17 ans (oui, ça fait mal), et qui a reçu beaucoup de contributions extérieures.
-* webpack
-
-
-**Installation et test de typescript**
-``` console
-npm install -g typescript #pour l'installation
-tsc test.ts #pour l'exexution du fichier test.ts
-```
-
-* variables, constantes, Valeurs énumérées(enum)
-* fonctions et procedures(fonction flechés)
-* Paramètre optionnel
-* Interfaces
-* Classes(constructeur, methode, getteur, setteur, heritage, extensions, )
-* Décorateurs,  
+Les données vont êtres stockées sur une base de données non-rélationnel (nosql) basé au format json (mongodb) intégré dans firebase.

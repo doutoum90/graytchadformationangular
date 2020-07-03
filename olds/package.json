@@ -1,0 +1,35 @@
+{
+  "name": "graytchadformationangular",
+  "version": "1.0.0",
+  "description": "formation Angular",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "lalekou": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doutoum90/graytchadformationangular.git"
+  },
+  "keywords": [
+    "angular",
+    "webpack",
+    "babel"
+  ],
+  "author": "Annour && GrayTchad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doutoum90/graytchadformationangular/issues"
+  },
+  "homepage": "https://github.com/doutoum90/graytchadformationangular#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
