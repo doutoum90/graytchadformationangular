@@ -12,4 +12,6 @@
 
 ## [Leçon 5: Quelques notions de base d'angular](docs/lecon5.md)
 
-## [Leçon 6: Angular](docs/lecon6.md)
+## [Leçon 6: La syntaxe des templates](docs/lecon6.md)
+
+## [Leçon 7: Le binding bidirectionnel](docs/lecon7.md)

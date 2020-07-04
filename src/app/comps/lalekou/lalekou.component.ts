@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-interface Etudiant {
+export interface Etudiant {
   nom: String;
   prenom?: Identite;
   age: number;
 }
 interface Identite {
   prenom1: String;
-  prenom2?: String;
+  prenom2: String;
 
 }
 
@@ -21,6 +21,7 @@ export class LalekouComponent implements OnInit {
   titre = 'Page lalekou';
   etudiants: Observable<Array<Etudiant>>;
   mavaleur = 'Hello';
+  motCle = 'ISSA';
 
   constructor() { }
 
