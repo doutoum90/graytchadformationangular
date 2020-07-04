@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'gray-gray-tchad',
     template: `
-        <p>Bonjour</p>
-        <gray-lalekou></gray-lalekou>
+        <h2>Lalekou Gray Tchad</h2>
     `,
     styles: [``]
 })

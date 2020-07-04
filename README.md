@@ -15,3 +15,5 @@
 ## [Leçon 6: La syntaxe des templates](docs/lecon6.md)
 
 ## [Leçon 7: Le binding bidirectionnel](docs/lecon7.md)
+
+## [Leçon 8: Le routers](docs/lecon8.md)
