@@ -11,3 +11,5 @@
 ## [Leçon 4: Préparation des environnements](docs/lecon4.md)
 
 ## [Leçon 5: Quelques notions de base d'angular](docs/lecon5.md)
+
+## [Leçon 6: Angular](docs/lecon6.md)

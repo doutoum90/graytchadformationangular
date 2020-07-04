@@ -1,1 +1,26 @@
+<h2>{{titre}}</h2>
 <p>lalekou Gray Tchad!</p>
+
+<input type="text" [value]="mavaleur">
+
+<p>
+    valeur: {{mavaleur}}
+</p>
+
+<table>
+    <thead>
+        <tr>
+
+            <td>Nom</td>
+            <td>Prenom</td>
+            <td>Age</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let etudiant of (etudiants | async) " (mouseout)="test(etudiant)" (click)="afficher(etudiant)">
+            <td>{{etudiant.nom}}</td>
+            <td>{{etudiant.prenom ? (etudiant.prenom.prenom1): null}} {{etudiant?.prenom?.prenom2}}</td>
+            <td>{{etudiant.age}}</td>
+        </tr>
+    </tbody>
+</table>
