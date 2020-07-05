@@ -19,3 +19,5 @@
 ## [Leçon 8: Le routers](docs/lecon8.md)
 
 ## [Leçon 9: Mettre en place Bootstrap](docs/lecon9.md)
+
+## [Leçon 10: Reorganisation et lazyloading](docs/lecon10.md)
