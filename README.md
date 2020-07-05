@@ -20,4 +20,6 @@
 
 ## [Leçon 9: Mettre en place Bootstrap](docs/lecon9.md)
 
-## [Leçon 10: Reorganisation et lazyloading](docs/lecon10.md)
+## [Leçon 10: Réorganisation et lazyloading](docs/lecon10.md)
+
+## [Leçon 11:  Activation route courante et ajout de contenu](docs/lecon11.md)

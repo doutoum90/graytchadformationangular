@@ -20,8 +20,7 @@ interface Identite {
 export class LalekouComponent implements OnInit {
   titre = 'Page lalekou';
   etudiants: Observable<Array<Etudiant>>;
-  mavaleur = 'Hello';
-  motCle = 'ISSA';
+  motCle = '';
 
   constructor() { }
 
