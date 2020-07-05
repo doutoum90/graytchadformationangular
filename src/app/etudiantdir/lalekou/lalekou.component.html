@@ -1,0 +1,29 @@
+
+
+<div class="row">
+    <div class="col-12 mb-5">
+        <button class=" btn btn-primary" routerLink="ajouter"> Ajouter Un étudiant</button>
+    </div>
+</div>
+
+<input [(ngModel)]="motCle">
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <td>Nom</td>
+            <td>Prenom</td>
+            <td>Age</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let etudiant of (etudiants | async | filtre : motCle) " (mouseout)="test(etudiant)" (click)="afficher(etudiant)" 
+        [routerLink]="['modifier', etudiant.nom, etudiant.prenom?.prenom1]">
+            <td>{{etudiant.nom}}</td>
+            <td>{{etudiant.prenom ? (etudiant.prenom.prenom1): null}} {{etudiant?.prenom?.prenom2}}</td>
+            <td>{{etudiant.age}}</td>
+            <!-- <td><button class="btn btn-trash"></button></td> -->
+        </tr>
+    </tbody>
+</table>

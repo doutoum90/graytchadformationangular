@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Etudiant } from '../comps/lalekou/lalekou.component';
+import { Etudiant } from '../etudiantdir/lalekou/lalekou.component';
 
 @Pipe({
   name: 'filtre'
