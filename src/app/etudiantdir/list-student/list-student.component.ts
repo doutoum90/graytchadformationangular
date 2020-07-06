@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListStudentComponent implements OnInit {
 
+  nomButton='btn1';
   constructor() { }
 
   ngOnInit(): void {

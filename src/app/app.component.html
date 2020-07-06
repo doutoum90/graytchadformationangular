@@ -1,5 +1,5 @@
 <gray-header></gray-header>
-<main role="main" style="padding-top: 30px; margin-bottom: 250px !important" class="flex-shrink-0">
+<main role="main" [style.padding-top]="30" [ngStyle]="{ 'margin-bottom': '250px !important'}" [class.flex-shrink-0]="true" >
     <div class="container-fluid">
         <router-outlet></router-outlet>
     </div>

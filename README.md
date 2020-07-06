@@ -25,3 +25,5 @@
 ## [Leçon 11:  Activation route courante et ajout de contenu](docs/lecon11.md)
 
 ## [Leçon 12:  Services et injection de dépendances](docs/lecon12.md)
+
+## [Leçon 13:  Les directives](docs/lecon13.md)

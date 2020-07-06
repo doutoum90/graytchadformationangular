@@ -7,6 +7,7 @@ import { FiltrePipe } from '../pipes/filtre.pipe';
 import { FormsModule } from '@angular/forms';
 import { AjoutEtudiantComponent } from './ajout-etudiant/ajout-etudiant.component';
 import { ModificationEtudiantComponent } from './modification-etudiant/modification-etudiant.component';
+import { MajusculeDirective } from '../directives/majuscule.directive';
 
 
 
@@ -15,6 +16,7 @@ import { ModificationEtudiantComponent } from './modification-etudiant/modificat
     ListStudentComponent,
     LalekouComponent,
     FiltrePipe,
+    MajusculeDirective,
     AjoutEtudiantComponent,
     ModificationEtudiantComponent
   ],

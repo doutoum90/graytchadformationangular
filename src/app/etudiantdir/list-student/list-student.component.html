@@ -1,3 +1,27 @@
 <h1>Liste des étudiants</h1>
 
 <gray-lalekou></gray-lalekou>
+
+<button (click)="nomButton= 'btn1'">Un</button>
+<button (click)="nomButton= 'btn2'">deux</button>
+<button (click)="nomButton= 'btn3'">trois</button>
+<button (click)="nomButton= 'btn4'">quatre</button>
+<button (click)="nomButton= 'btn5'">cinq</button>
+
+
+<div [ngSwitch]="nomButton">
+    <div *ngSwitchCase="'btn1'">
+        Bouton 1
+    </div>
+
+    <div *ngSwitchCase="'btn2'">
+        Bouton 2
+    </div>
+
+    <div *ngSwitchCase="'btn3'">
+        Bouton 3
+    </div>
+    <div *ngSwitchDefault>
+       Autre bouton
+    </div>
+</div>
