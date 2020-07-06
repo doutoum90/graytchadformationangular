@@ -1,1 +1,29 @@
-<p>modification-etudiant works!</p>
+<p>Modifier les informations de l'étudiant</p>
+
+<form *ngIf=" (etudiant |async) as et">
+    <div class="form-group">
+        <label for="inputNom">Nom</label>
+        <input type="text" [value]="et.nom" class="form-control" id="inputNom" aria-describedby="inputNomAide">
+        <small id="inputNomAide" class="form-text text-muted">Taper ici pour modifier votre nom.</small>
+    </div>
+    <div class="form-group">
+        <label for="inputPrenom">Prenom1</label>
+        <input type="text" [value]="(et.prenom) ? et.prenom.prenom1: ''" class="form-control"
+        aria-describedby="inputPrenomAide" id="inputPrenom">
+            <small id="inputPrenomAide" class="form-text text-muted">Taper ici pour modifier votre premier prenom.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="inputPrenom2">Prenom2</label>
+        <input type="email" [value]="(et.prenom) ? et.prenom.prenom2: ''" class="form-control" id="inputPrenom2"
+            aria-describedby="inputPrenom2Aide">
+        <small id="inputPrenom2Aide" class="form-text text-muted">Taper ici pour modifier votre second prenom.</small>
+    </div>
+    <div class="form-group">
+        <label for="inputAge">Age</label>
+        <input type="number" [value]="et.age" class="form-control" id="inputAge" aria-describedby="inputAgeAide">
+        <small id="inputAgeAide" class="form-text text-muted">Taper ici pour modifier votre second prenom.</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Modifier</button>
+</form>

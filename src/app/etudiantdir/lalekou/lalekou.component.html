@@ -19,7 +19,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let etudiant of (etudiants | async | filtre : motCle) " (mouseout)="test(etudiant)" (click)="afficher(etudiant)" 
-        [routerLink]="['modifier', etudiant.nom, etudiant.prenom?.prenom1]">
+        [routerLink]="['modifier', etudiant.id]">
             <td>{{etudiant.nom}}</td>
             <td>{{etudiant.prenom ? (etudiant.prenom.prenom1): null}} {{etudiant?.prenom?.prenom2}}</td>
             <td>{{etudiant.age}}</td>

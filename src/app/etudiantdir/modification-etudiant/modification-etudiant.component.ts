@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { RecuperationDataService } from 'src/app/services/recuperation-data.service';
+import { Observable } from 'rxjs';
+import { Etudiant } from '../lalekou/lalekou.component';
 
 @Component({
   selector: 'gray-modification-etudiant',
@@ -7,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModificationEtudiantComponent implements OnInit {
 
-  constructor() { }
+  etudiant : Observable<Etudiant>;
+  constructor(private readonly activated: ActivatedRoute, 
+    private readonly etudiantService: RecuperationDataService) { }
 
   ngOnInit(): void {
+    this.etudiant = this.etudiantService.getEtudiant(Number(this.activated.snapshot.params.id));
   }
 
 }

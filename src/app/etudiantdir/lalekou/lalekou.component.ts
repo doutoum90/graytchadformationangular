@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import {RecuperationDataService} from '../../services/recuperation-data.service';
 
 export interface Etudiant {
+  id: number;
   nom: String;
   prenom?: Identite;
   age: number;
@@ -22,7 +24,7 @@ export class LalekouComponent implements OnInit {
   etudiants: Observable<Array<Etudiant>>;
   motCle = '';
 
-  constructor() { }
+  constructor(private readonly service : RecuperationDataService) { }
 
   ngOnInit(): void {
     this.etudiants = this.getData();
@@ -38,12 +40,7 @@ export class LalekouComponent implements OnInit {
     console.log('vous avez survoler l\'étudiant ', etudiant.nom);
   }
   getData(): Observable<Array<Etudiant>> {
-    return of(<Array<Etudiant>>[
-      { nom: 'ISSA', prenom: { prenom1: 'Daoud', prenom2: 'Mahamat' }, age: 25 },
-      { nom: 'AHMAT', age: 25 },
-      { nom: 'IDRIS', prenom: { prenom1: 'Daoud', prenom2: 'Mahamat' }, age: 25 },
-      { nom: 'MOUSSA', prenom: { prenom1: 'Daoud' }, age: 25 }
-    ]);
+    return this.service.getEtudiants();
   }
 }
 

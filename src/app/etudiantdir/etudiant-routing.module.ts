@@ -8,7 +8,7 @@ import { ModificationEtudiantComponent } from './modification-etudiant/modificat
 const routes: Routes = [
   { component: ListStudentComponent, path: '', pathMatch: 'full' },
   { component: AjoutEtudiantComponent, path: 'ajouter', pathMatch: 'full' },
-  { component: ModificationEtudiantComponent, path: 'modifier/:nom/:prenom', pathMatch: 'full' }
+  { component: ModificationEtudiantComponent, path: 'modifier/:id', pathMatch: 'full' }
 ];
 
 
