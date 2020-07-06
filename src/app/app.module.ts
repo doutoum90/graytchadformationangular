@@ -10,6 +10,8 @@ import { AboutModule } from './aboutdir/about.module';
 import { ContactModule } from './contactdir/contact.module';
 import { EtudiantModule } from './etudiantdir/etudiant.module';
 import { HomeModule } from './homedir/home.module';
+import { ConnexionComponent } from './core/connexion/connexion.component';
+import { InscriptionComponent } from './core/inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { HomeModule } from './homedir/home.module';
     NotFoundComponent,
     HeaderComponent,
     FooterComponent,
+    ConnexionComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,
