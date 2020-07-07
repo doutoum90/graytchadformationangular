@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AjoutEtudiantComponent } from './ajout-etudiant/ajout-etudiant.component';
 import { ModificationEtudiantComponent } from './modification-etudiant/modification-etudiant.component';
 import { MajusculeDirective } from '../directives/majuscule.directive';
+import { NombreDirective } from '../directives/nombre.directive';
 
 
 
@@ -18,6 +19,7 @@ import { MajusculeDirective } from '../directives/majuscule.directive';
     FiltrePipe,
     MajusculeDirective,
     AjoutEtudiantComponent,
+    NombreDirective,
     ModificationEtudiantComponent
   ],
   imports: [

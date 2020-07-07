@@ -1,36 +1,22 @@
-<header class="mb-5">
+<header class="mb-5" *ngIf="(header | async) as headerData">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Angular sur Gray TCHAD</a>
+        <a class="navbar-brand" href="#">{{headerData.titre}}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" routerLink="home">Home <span class="sr-only">(current)</span></a>
+                <li *ngFor="let element of headerData.menuGauche" class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="element.url">{{element.nom}} </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" routerLink="about">About</a>
-                </li>
-                <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" routerLink="list">Liste des étudiants</a>
-                </li>
-                <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" routerLink="contact">Contact</a>
-                </li>
-
             </ul>
 
             <ul class="navbar-nav mt-2 mt-md-0">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="connexion">Connexion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="inscription">Inscription</a>
+                <li *ngFor="let element of headerData.menuDroite" class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="element.url">{{element.nom}}</a>
                 </li>
             </ul>
-
         </div>
     </nav>
 </header>

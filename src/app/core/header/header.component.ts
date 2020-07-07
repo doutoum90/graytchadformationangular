@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderService, IHeader } from '../../services/header.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'gray-header',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  header: Observable<IHeader>;
+
+  constructor(private headerS: HeaderService) { }
 
   ngOnInit(): void {
+    this.header = this.headerS.elementHeader();
   }
 
 }

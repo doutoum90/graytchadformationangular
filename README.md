@@ -26,4 +26,4 @@
 
 ## [Leçon 12:  Services et injection de dépendances](docs/lecon12.md)
 
-## [Leçon 13:  Les directives](docs/lecon13.md)
+## [Leçon 13 et 14:  Les directives](docs/lecon13.md)
