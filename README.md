@@ -1,4 +1,4 @@
-# Formation en langage c en langue tchadienne
+# Formation angular progressive en langue tchadienne et réalisation d'un blog
 
 ![](images/gray.jpeg)
 
@@ -26,4 +26,6 @@
 
 ## [Leçon 12:  Services et injection de dépendances](docs/lecon12.md)
 
-## [Leçon 13 et 14:  Les directives](docs/lecon13.md)
+## [Leçon 13:  Les directives et (suite)](docs/lecon13.md)
+
+## [Leçon 14:  Installation de font-awesome ](docs/lecon14.md)
