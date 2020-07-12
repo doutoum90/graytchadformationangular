@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import {RecuperationDataService} from '../../services/recuperation-data.service';
+import { RecuperationDataService } from '../../services/recuperation-data.service';
+import { faTrash, faEdit, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+
+import { Router } from '@angular/router';
 
 export interface Etudiant {
   id: number;
@@ -20,25 +23,29 @@ interface Identite {
   styleUrls: ['./lalekou.component.scss']
 })
 export class LalekouComponent implements OnInit {
+  iconSuppr: IconDefinition = faTrash;
+  iconModifier: IconDefinition = faEdit;
   titre = 'Page lalekou';
   etudiants: Observable<Array<Etudiant>>;
   motCle = '';
 
-  constructor(private readonly service : RecuperationDataService) { }
+  constructor(private readonly service: RecuperationDataService, private router: Router) { }
 
   ngOnInit(): void {
     this.etudiants = this.getData();
   }
 
-  afficher(etudiant: Etudiant): void {
-    console.log('Nom: ', etudiant.nom);
-    console.log('Prenom: ', (etudiant.prenom) ? etudiant.prenom.prenom1 + ' ' + etudiant.prenom.prenom2 : '');
-    console.log('Age: ', etudiant.age);
+  afficher(path: string, id: number): void {
+    this.router.navigate([path, id]);
   }
 
-  test(etudiant: Etudiant): void {
-    console.log('vous avez survoler l\'étudiant ', etudiant.nom);
+  supprimer(id: number) {
+    console.log('suppression de l\'etudiant avec l\'id', id);
   }
+  modifier(id: number) {
+    this.router.navigate(['list/modifier', id]);
+  }
+
   getData(): Observable<Array<Etudiant>> {
     return this.service.getEtudiants();
   }

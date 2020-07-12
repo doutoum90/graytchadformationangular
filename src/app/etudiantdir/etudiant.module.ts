@@ -9,6 +9,7 @@ import { AjoutEtudiantComponent } from './ajout-etudiant/ajout-etudiant.componen
 import { ModificationEtudiantComponent } from './modification-etudiant/modification-etudiant.component';
 import { MajusculeDirective } from '../directives/majuscule.directive';
 import { NombreDirective } from '../directives/nombre.directive';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -25,7 +26,8 @@ import { NombreDirective } from '../directives/nombre.directive';
   imports: [
     CommonModule,
     FormsModule,
-    EtudiantRoutingModule
+    EtudiantRoutingModule,
+    FontAwesomeModule
   ],
   exports: [
     ListStudentComponent,

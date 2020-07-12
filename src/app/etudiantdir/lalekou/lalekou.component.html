@@ -16,15 +16,19 @@
                     <td>Nom</td>
                     <td>Prenom</td>
                     <td>Age</td>
+                    <td>Actions</td>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let etudiant of (etudiants | async | filtre : motCle) " (mouseout)="test(etudiant)"
-                    (click)="afficher(etudiant)" [routerLink]="['modifier', etudiant.id]">
+                <tr *ngFor="let etudiant of (etudiants | async | filtre : motCle)"
+                    (dbclick)="afficher('modifier', etudiant.id)">
                     <td>{{etudiant.nom}}</td>
                     <td>{{etudiant.prenom ? (etudiant.prenom.prenom1): null}} {{etudiant?.prenom?.prenom2}}</td>
                     <td>{{etudiant.age}}</td>
-                    <!-- <td><button class="btn btn-trash"></button></td> -->
+                    <td>
+                        <fa-icon (click)="supprimer(etudiant.id)" [ngStyle]="{'margin-right': '15px'}" [icon]="iconSuppr"></fa-icon>
+                        <fa-icon (click)="modifier(etudiant.id)" [icon]="iconModifier"></fa-icon>
+                    </td>
                 </tr>
             </tbody>
         </table>
