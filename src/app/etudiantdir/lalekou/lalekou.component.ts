@@ -10,6 +10,9 @@ export interface Etudiant {
   nom: String;
   prenom?: Identite;
   age: number;
+  dateNaissance: Date;
+  fraisSubsistance: number;
+  note: number;
 }
 interface Identite {
   prenom1: String;
@@ -28,6 +31,14 @@ export class LalekouComponent implements OnInit {
   titre = 'Page lalekou';
   etudiants: Observable<Array<Etudiant>>;
   motCle = '';
+
+  objectComplexe = [
+    { nom: 'test1', marque: 'jejerh' },
+    { nom: 'test2', marque: 'jejerh' },
+    { nom: 'test3', marque: 'jejerh' }
+  ];
+  chaine = "bonjour graytchad";
+  nombre = 1000000;
 
   constructor(private readonly service: RecuperationDataService, private router: Router) { }
 

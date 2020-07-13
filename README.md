@@ -22,10 +22,12 @@
 
 ## [Leçon 10: Réorganisation et lazyloading](docs/lecon10.md)
 
-## [Leçon 11:  Activation route courante et ajout de contenu](docs/lecon11.md)
+## [Leçon 11: Activation route courante et ajout de contenu](docs/lecon11.md)
 
-## [Leçon 12:  Services et injection de dépendances](docs/lecon12.md)
+## [Leçon 12: Services et injection de dépendances](docs/lecon12.md)
 
-## [Leçon 13:  Les directives et (suite)](docs/lecon13.md)
+## [Leçon 13: Les directives et (suite)](docs/lecon13.md)
 
-## [Leçon 14:  Installation de font-awesome ](docs/lecon14.md)
+## [Leçon 14: Installation de font-awesome ](docs/lecon14.md)
+
+## [Leçon 15: Les pipes ](docs/lecon15.md)
