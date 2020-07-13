@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{data.titre}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="annuler()">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+<div class="modal-body">
+    <p>
+       {{data.message}}
+    </p>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="ok()">supprimer</button>
+    <button type="button" class="btn btn-outline-dark" (click)="annuler()">Annuler</button>
+</div>

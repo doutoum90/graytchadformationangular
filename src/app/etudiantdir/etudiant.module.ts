@@ -12,7 +12,7 @@ import { MajusculeDirective } from '../directives/majuscule.directive';
 import { NombreDirective } from '../directives/nombre.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     FormsModule,
     EtudiantRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbModule
   ],
   exports: [
     ListStudentComponent,

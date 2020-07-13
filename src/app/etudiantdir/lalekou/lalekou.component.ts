@@ -4,6 +4,8 @@ import { RecuperationDataService } from '../../services/recuperation-data.servic
 import { faTrash, faEdit, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalSuppressionComponent } from 'src/app/core/modal-suppression/modal-suppression.component';
 
 export interface Etudiant {
   id: number;
@@ -40,7 +42,10 @@ export class LalekouComponent implements OnInit {
   chaine = "bonjour graytchad";
   nombre = 1000000;
 
-  constructor(private readonly service: RecuperationDataService, private router: Router) { }
+  constructor(
+    private readonly service: RecuperationDataService,
+    private readonly router: Router,
+    private readonly modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.etudiants = this.getData();
@@ -50,8 +55,19 @@ export class LalekouComponent implements OnInit {
     this.router.navigate([path, id]);
   }
 
-  supprimer(id: number) {
-    console.log('suppression de l\'etudiant avec l\'id', id);
+  supprimer (id: number) {
+    const ref = this.modalService.open(ModalSuppressionComponent, 
+      { ariaLabelledBy: 'modal-basic-title', });
+      ref.componentInstance.data = {
+        titre: 'Suppression d\'un étudiant', 
+        message: 'Etes-vous sur de vouloir supprimer cet étudiant ?'}
+      ref.result.then((result) => {
+      // fermeture de la modal avec succes
+      console.log('suppression de l\'etudiant avec l\'id', id);
+    }, (reason) => {
+      console.log('fermeture pour autre cause');
+      // fermeture anormale avec la valeur reason
+    });
   }
   modifier(id: number) {
     this.router.navigate(['list/modifier', id]);

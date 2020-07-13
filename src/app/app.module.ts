@@ -12,6 +12,7 @@ import { EtudiantModule } from './etudiantdir/etudiant.module';
 import { HomeModule } from './homedir/home.module';
 import { ConnexionComponent } from './core/connexion/connexion.component';
 import { InscriptionComponent } from './core/inscription/inscription.component';
+import { ModalSuppressionComponent } from './core/modal-suppression/modal-suppression.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { InscriptionComponent } from './core/inscription/inscription.component';
     FooterComponent,
     ConnexionComponent,
     InscriptionComponent,
+    ModalSuppressionComponent,
   ],
   imports: [
     BrowserModule,
