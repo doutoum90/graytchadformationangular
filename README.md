@@ -31,3 +31,5 @@
 ## [Leçon 14: Installation de font-awesome ](docs/lecon14.md)
 
 ## [Leçon 15: Les pipes ](docs/lecon15.md)
+
+## [Leçon 16: Les modals (popin) de bootstrap ](docs/lecon16.md)
