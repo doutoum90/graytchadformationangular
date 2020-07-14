@@ -12,9 +12,14 @@
                 </li>
             </ul>
 
-            <ul class="navbar-nav mt-2 mt-md-0">
+            <ul *ngIf="!estConnecte()" class="navbar-nav mt-2 mt-md-0">
                 <li *ngFor="let element of headerData.menuDroite" class="nav-item" routerLinkActive="active">
                     <a class="nav-link" [routerLink]="element.url">{{element.nom}}</a>
+                </li>
+            </ul>
+            <ul *ngIf="estConnecte()" class="navbar-nav mt-2 mt-md-0">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" (click)="deconnecter()">Déconnection</a>
                 </li>
             </ul>
         </div>
