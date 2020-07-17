@@ -13,7 +13,7 @@ import { HomeModule } from './homedir/home.module';
 import { ConnexionComponent } from './core/connexion/connexion.component';
 import { InscriptionComponent } from './core/inscription/inscription.component';
 import { ModalSuppressionComponent } from './core/modal-suppression/modal-suppression.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AboutModule,
     ContactModule,
