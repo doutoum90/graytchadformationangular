@@ -35,3 +35,5 @@
 ## [Leçon 16: Les modals (popin) de bootstrap ](docs/lecon16.md)
 
 ## [Leçon 17: Les guards: sécuriser les pages ](docs/lecon17.md)
+
+## [Leçon 18: Les formulaires: piloté par la template ](docs/lecon18.md)

@@ -4,26 +4,29 @@
 
         <div class="col-4"></div>
         <div class="col-4">
-            <form>
+            <form (ngSubmit)="connexion()">
                 <h1>Connexion</h1>
 
                 <div class="form-group">
                     <label for="inputUserName">Nom d'utilisateur</label>
-                    <input type="text" class="form-control" name="inputUserName" aria-describedby="inputUserNameAide">
+                    <input type="text" class="form-control" name="inputUserName" [(ngModel)]="user.username" aria-describedby="inputUserNameAide">
                     <small id="inputUserNameAide" class="form-text text-muted">Taper ici pour modifier votre nom
                         d'utilisateur.</small>
                 </div>
 
                 <div class="form-group">
                     <label for="inputPassword">Mot de passe</label>
-                    <input type="password" class="form-control" name="inputPassword"
+                    <input type="password" class="form-control" name="inputPassword" [(ngModel)]="user.password"
                         aria-describedby="inputPasswordAide">
                     <small id="inputPasswordAide" class="form-text text-muted">Taper ici pour modifier votre mot de
                         passe.</small>
                 </div>
 
-                <button type="submit" class="btn btn-primary" (click)="connexion()">S'authentifier</button>
+                <button type="submit" class="btn btn-primary">S'authentifier</button>
             </form>
+            <div [ngStyle]="{'color':'red'}" *ngIf="afficherMessageErreur">
+                {{messageErreur}}
+            </div>
         </div>
         <div class="col-4"></div>
     </div>
