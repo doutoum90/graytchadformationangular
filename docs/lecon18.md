@@ -7,7 +7,7 @@
 1- importer le module `FormsModule`
 2- utiliser la directive `ngModel` pour faire le binding.
 
-dans la template
+un extrait de la template
 
 ``` html
 <h1>Connexion</h1>
@@ -31,7 +31,7 @@ dans la template
 </div>
 ```
 
-dans le code
+un extrait du code
 
 ``` typescript
 user: User = {};

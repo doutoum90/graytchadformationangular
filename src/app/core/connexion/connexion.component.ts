@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from 'src/app/services/authentification.service';
-import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';;
 
 interface User {
   password?: string;
