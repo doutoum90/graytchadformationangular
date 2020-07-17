@@ -4,12 +4,13 @@
 
         <div class="col-4"></div>
         <div class="col-4">
+            <h1>Connexion</h1>
             <form (ngSubmit)="connexion()">
-                <h1>Connexion</h1>
 
                 <div class="form-group">
                     <label for="inputUserName">Nom d'utilisateur</label>
-                    <input type="text" class="form-control" name="inputUserName" [(ngModel)]="user.username" aria-describedby="inputUserNameAide">
+                    <input type="text" class="form-control" name="inputUserName" [(ngModel)]="user.username"
+                        aria-describedby="inputUserNameAide">
                     <small id="inputUserNameAide" class="form-text text-muted">Taper ici pour modifier votre nom
                         d'utilisateur.</small>
                 </div>

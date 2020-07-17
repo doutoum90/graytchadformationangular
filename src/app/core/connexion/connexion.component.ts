@@ -30,5 +30,4 @@ export class ConnexionComponent implements OnInit {
     this.afficherMessageErreur = true;
   }
 
-
 }

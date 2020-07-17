@@ -35,7 +35,9 @@
                     <td>
                         <fa-icon (click)="supprimer(etudiant.id)" [ngStyle]="{'margin-right': '15px'}"
                             [icon]="iconSuppr"></fa-icon>
-                        <fa-icon (click)="modifier(etudiant.id)" [icon]="iconModifier"></fa-icon>
+                        <fa-icon (click)="modifier(etudiant.id)" [ngStyle]="{'margin-right': '15px'}"
+                            [icon]="iconModifier"></fa-icon>
+                        <fa-icon (click)="detail(etudiant.id)" [icon]="iconZoom"></fa-icon>
                     </td>
                 </tr>
             </tbody>

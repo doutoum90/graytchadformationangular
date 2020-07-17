@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { RecuperationDataService } from '../../services/recuperation-data.service';
-import { faTrash, faEdit, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faTrash, faEdit, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -30,6 +30,7 @@ interface Identite {
 export class LalekouComponent implements OnInit {
   iconSuppr: IconDefinition = faTrash;
   iconModifier: IconDefinition = faEdit;
+  iconZoom: IconDefinition = faSearch;
   titre = 'Page lalekou';
   etudiants: Observable<Array<Etudiant>>;
   motCle = '';
@@ -55,13 +56,14 @@ export class LalekouComponent implements OnInit {
     this.router.navigate([path, id]);
   }
 
-  supprimer (id: number) {
-    const ref = this.modalService.open(ModalSuppressionComponent, 
+  supprimer(id: number) {
+    const ref = this.modalService.open(ModalSuppressionComponent,
       { ariaLabelledBy: 'modal-basic-title', });
-      ref.componentInstance.data = {
-        titre: 'Suppression d\'un étudiant', 
-        message: 'Etes-vous sur de vouloir supprimer cet étudiant ?'}
-      ref.result.then((result) => {
+    ref.componentInstance.data = {
+      titre: 'Suppression d\'un étudiant',
+      message: 'Etes-vous sur de vouloir supprimer cet étudiant ?'
+    }
+    ref.result.then((result) => {
       // fermeture de la modal avec succes
       console.log('suppression de l\'etudiant avec l\'id', id);
     }, (reason) => {
@@ -71,6 +73,9 @@ export class LalekouComponent implements OnInit {
   }
   modifier(id: number) {
     this.router.navigate(['list/modifier', id]);
+  }
+  detail(id: number) {
+    // this.router.navigate(['list/modifier', id]);
   }
 
   getData(): Observable<Array<Etudiant>> {
