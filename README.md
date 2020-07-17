@@ -39,3 +39,5 @@
 ## [Leçon 18: Les formulaires: piloté par la template ](docs/lecon18.md)
 
 ## [Leçon 19: Formulaires pilotés par le code : version 1](docs/lecon19.md)
+
+## [Leçon 20: Formulaires pilotés par le code : version 2](docs/lecon20.md)
