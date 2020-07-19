@@ -33,8 +33,7 @@
                     <label for="inputPassword">Mot de passe (*) </label>
                     <input type="password" class="form-control" name="inputPassword"
                         [class.is-valid]="password.touched && !password.errors"
-                        [class.is-invalid]="password.touched && password.errors" formControlName="password"
-                        aria-describedby="inputPasswordAide">
+                        [class.is-invalid]="password.touched && password.errors" formControlName="password">
                     <div *ngIf="password.invalid && password.touched">
                         <p class="text-danger" *ngIf="password.errors?.required">
                             Le mot de passe est obligatoire !!!
