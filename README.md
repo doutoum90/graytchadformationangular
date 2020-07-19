@@ -41,3 +41,5 @@
 ## [Leçon 19: Formulaires pilotés par le code : version 1](docs/lecon19.md)
 
 ## [Leçon 20: Formulaires pilotés par le code : version 2](docs/lecon20.md)
+
+## [Leçon 21: Les validateurs personnalisés](docs/lecon21.md)
