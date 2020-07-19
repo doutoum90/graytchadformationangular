@@ -6,21 +6,7 @@ import { faSearch, faTrash, faEdit, IconDefinition } from '@fortawesome/free-sol
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalSuppressionComponent } from 'src/app/core/modal-suppression/modal-suppression.component';
-
-export interface Etudiant {
-  id: number;
-  nom: String;
-  prenom?: Identite;
-  age: number;
-  dateNaissance: Date;
-  fraisSubsistance: number;
-  note: number;
-}
-interface Identite {
-  prenom1: String;
-  prenom2: String;
-
-}
+import { Etudiant } from '../../models/etudiant.model';
 
 @Component({
   selector: 'gray-lalekou',

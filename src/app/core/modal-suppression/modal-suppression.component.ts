@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { DataModal } from '../../models/data.model';
 
 @Component({
   selector: 'gray-modal-suppression',
@@ -22,10 +23,4 @@ export class ModalSuppressionComponent implements OnInit {
     this.modalService.dismiss({ valeur: 'ne pas supprimer' });
   }
 
-}
-
-
-export interface DataModal {
-  titre: string;
-  message: string;
 }

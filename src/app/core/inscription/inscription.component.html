@@ -9,31 +9,27 @@
 
                 <div class="form-group">
                     <label for="inputUserName">Nom d'utilisateur (*) </label>
-                    <input type="text" class="form-control" name="inputUserName" 
-                    formControlName="username"
-                    aria-describedby="inputUserNameAide">
-                    <small 
-                    *ngIf="inscriptionFormulaire.get('username').touched && inscriptionFormulaire.get('username').invalid"
-                    id="inputUserNameAide" class="form-text text-danger">nom d'utilisateur incorrecte</small>
+                    <input type="text" class="form-control" name="inputUserName" formControlName="username"
+                        aria-describedby="inputUserNameAide">
+                    <small *ngIf="estValide('username')" id="inputUserNameAide" class="form-text text-danger">nom
+                        d'utilisateur incorrecte</small>
                 </div>
 
                 <div class="form-group">
                     <label for="inputPassword">Mot de passe</label>
-                    <input type="password" class="form-control" name="inputPassword"
-                    formControlName="password"
+                    <input type="password" class="form-control" name="inputPassword" formControlName="password"
                         aria-describedby="inputPasswordAide">
-                    <small id="inputPasswordAide" class="form-text text-muted">Taper ici pour modifier votre mot de
-                        passe.</small>
+                       
                 </div>
 
                 <div class="form-group">
                     <label for="inputPasswordConfirm">Valider votre Mot de passe</label>
-                    <input type="password" class="form-control"
-                    formControlName="passwordConfirm"
-                     name="inputPasswordConfirm">
+                    <input type="password" class="form-control" formControlName="passwordConfirm"
+                        name="inputPasswordConfirm">
                 </div>
 
-                <button [disabled]="inscriptionFormulaire.invalid" type="submit" class="btn btn-primary">S'enregistrer</button>
+                <button [disabled]="inscriptionFormulaire.invalid" type="submit"
+                    class="btn btn-primary">S'enregistrer</button>
             </form>
         </div>
         <div class="col-4"></div>
