@@ -22,8 +22,9 @@ export class ContactComponent implements OnInit {
     this.formulaireContact = this.formbuilder.group({
       // nom: ['', Validators.minLength(5)]
       nom: this.formbuilder.control('', [
+        Validators.required,
         Validators.maxLength(50),
-        Validators.minLength(5),
+        Validators.minLength(3),
         Validators.pattern('^[A-Za-z]+$')
       ]),
       prenom: this.formbuilder.control('', [
@@ -31,7 +32,7 @@ export class ContactComponent implements OnInit {
         Validators.minLength(5),
         Validators.pattern('^[A-Za-z]+$')
       ]),
-      email: this.formbuilder.control('', Validators.email),
+      email: this.formbuilder.control('', [Validators.required, Validators.email]),
       sujet: this.formbuilder.control(''),
       message: this.formbuilder.control(''),
     })
@@ -50,5 +51,20 @@ export class ContactComponent implements OnInit {
     return this.formulaireContact.get(nomChamp).touched
       &&
       this.formulaireContact.get(nomChamp).invalid;
+  }
+  get nom() {
+    return this.formulaireContact.get('nom');
+  }
+  get prenom() {
+    return this.formulaireContact.get('prenom');
+  }
+  get email() {
+    return this.formulaireContact.get('email');
+  }
+  get sujet() {
+    return this.formulaireContact.get('nom');
+  }
+  get message() {
+    return this.formulaireContact.get('nom');
   }
 }

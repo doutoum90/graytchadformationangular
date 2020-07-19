@@ -1,36 +1,65 @@
 <div id="container">
     <div class="row">
-
-
         <div class="col-3"></div>
         <div class="col-6">
-            <p [ngStyle]="{'color': 'green'}" *ngIf="messageEnvoyer">
-                Votre message a été envoyer avec succés
-            </p>
+            <div *ngIf="messageEnvoyer" class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Votre message a été envoyer avec succés !!!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
             <h1>Nous contacter</h1>
             <form (ngSubmit)="envoyer()" [formGroup]="formulaireContact">
 
                 <div class="form-group">
-                    <label for="inputName">Nom</label>
-                    <input type="text" formControlName="nom" class="form-control" name="inputName">
-                    <p [ngStyle]="{'color': 'red'}" *ngIf="estValid('nom')">
-                        Nom incorrect
-                    </p>
+                    <label for="inputName">Nom (*)</label>
+                    <input type="text" formControlName="nom" [class.is-valid]="nom.touched && !nom.errors"
+                        [class.is-invalid]="nom.touched && nom.errors" class="form-control" name="inputName">
+                    <div *ngIf="nom.invalid && nom.touched">
+                        <p class="text-danger" *ngIf="nom.errors?.required">
+                            Le nom d'utilisateur est obligatoire !!!
+                        </p>
+                        <p class="text-danger" *ngIf="nom.errors?.minlength">
+                            Il faut au moins trois caracteres pour le nom
+                        </p>
+                        <p class="text-danger" *ngIf="nom.errors?.maxlength">
+                            Il faut au plus 50 caracteres pour le nom
+                        </p>
+                        <p class="text-danger" *ngIf="nom.errors?.pattern">
+                            Les caracteres acceptés sont uniquement des lettres majuscules et miniscules.
+                        </p>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputLastName">Prénom</label>
-                    <input type="text" formControlName="prenom" class="form-control" name="inputLastName">
-                    <p [ngStyle]="{'color': 'red'}" *ngIf="estValid('prenom')">
-                        Prénom incorrect
-                    </p>
+                    <input type="text" formControlName="prenom" [class.is-valid]="prenom.touched && !prenom.errors"
+                        [class.is-invalid]="prenom.touched && prenom.errors" class="form-control" name="inputLastName">
+                    <div *ngIf="prenom.invalid && prenom.touched">
+                        <p class="text-danger" *ngIf="prenom.errors?.minlength">
+                            Il faut au moins trois caracteres pour le prenom
+                        </p>
+                        <p class="text-danger" *ngIf="prenom.errors?.maxlength">
+                            Il faut au plus 50 caracteres pour le prenom
+                        </p>
+                        <p class="text-danger" *ngIf="prenom.errors?.pattern">
+                            Les caracteres acceptés sont uniquement des lettres majuscules et miniscules.
+                        </p>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputMail">Mail</label>
-                    <input type="email" formControlName="email" class="form-control" name="inputMail">
-                    <p [ngStyle]="{'color': 'red'}" *ngIf="estValid('email')">
-                        Mail incorrect
-                    </p>
+                    <label for="inputMail">Mail (*)</label>
+                    <input type="email" formControlName="email" [class.is-valid]="email.touched && !email.errors"
+                        [class.is-invalid]="email.touched && email.errors" class="form-control" name="inputMail">
+                    <div *ngIf="email.invalid && email.touched">
+                        <p class="text-danger" *ngIf="email.errors?.required">
+                            mail obligatoire !!!
+                        </p>
+                        <p class="text-danger" *ngIf="email.errors?.email">
+                            Le format du mail est incorrecte
+                        </p>
+                    </div>
                 </div>
 
                 <div class="form-group">

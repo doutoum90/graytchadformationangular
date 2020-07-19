@@ -16,7 +16,7 @@ export class InscriptionComponent implements OnInit {
   ngOnInit(): void {
     this.inscriptionFormulaire = new FormGroup({
       username: new FormControl('', [Validators.required, Validators.pattern("^[A-Za-z]+$"), Validators.maxLength(10), Validators.minLength(3)]),
-      password: new FormControl(''),
+      password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')]),
       passwordConfirm: new FormControl(''),
     }, verification());
     this.inscriptionFormulaire.get('password').valueChanges.subscribe(() => this.inscriptionFormulaire.get('passwordConfirm').updateValueAndValidity());
@@ -31,11 +31,14 @@ export class InscriptionComponent implements OnInit {
     return this.inscriptionFormulaire.get(name)?.touched && this.inscriptionFormulaire.get(name)?.invalid
   }
 
-  get passwordConfirm(){
+  get passwordConfirm() {
     return this.inscriptionFormulaire.get('passwordConfirm');
   }
 
-  get username(){
+  get username() {
     return this.inscriptionFormulaire.get('username');
+  }
+  get password() {
+    return this.inscriptionFormulaire.get('password');
   }
 }

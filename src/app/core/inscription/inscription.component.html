@@ -9,38 +9,57 @@
 
                 <div class="form-group">
                     <label for="inputUserName">Nom d'utilisateur (*) </label>
-                    <input type="text" class="form-control" name="inputUserName" formControlName="username"
-                        aria-describedby="inputUserNameAide">
+                    <input type="text" class="form-control" [class.is-valid]="username.touched && !username.errors"
+                        [class.is-invalid]="username.touched && username.errors" name="inputUserName"
+                        formControlName="username" aria-describedby="inputUserNameAide">
+
                     <div *ngIf="username.invalid && username.touched">
-                        <p class="form-text text-danger" *ngIf="username.errors?.required">
+                        <p class="text-danger" *ngIf="username.errors?.required">
                             Le nom d'utilisateur est obligatoire !!
                         </p>
-                        <p class="form-text text-danger" *ngIf="username.errors?.minlength">
+                        <p class="text-danger" *ngIf="username.errors?.minlength">
                             Il faut au moins trois caracteres pour le username
                         </p>
-                        <p class="form-text text-danger" *ngIf="username.errors?.maxlength">
+                        <p class="text-danger" *ngIf="username.errors?.maxlength">
                             Il faut au plus 10 caracteres pour le username
                         </p>
-                        <p class="form-text text-danger" *ngIf="username.errors?.pattern">
+                        <p class="text-danger" *ngIf="username.errors?.pattern">
                             Les caracteres acceptés sont uniquement des lettres majuscules et miniscules.
                         </p>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword">Mot de passe</label>
-                    <input type="password" class="form-control" name="inputPassword" formControlName="password"
+                    <label for="inputPassword">Mot de passe (*) </label>
+                    <input type="password" class="form-control" name="inputPassword"
+                        [class.is-valid]="password.touched && !password.errors"
+                        [class.is-invalid]="password.touched && password.errors" formControlName="password"
                         aria-describedby="inputPasswordAide">
-
+                    <div *ngIf="password.invalid && password.touched">
+                        <p class="text-danger" *ngIf="password.errors?.required">
+                            Le mot de passe est obligatoire !!!
+                        </p>
+                        <div class="text-danger" *ngIf="password.errors?.pattern">
+                            Le mot doit être d'une longueur de 8 caracteres et contenir
+                            <ul>
+                                <li>une lettre majuscule</li>
+                                <li>une lettre majuscule</li>
+                                <li>un chiffre</li>
+                                <li>un caracteres spécial</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPasswordConfirm">Valider votre Mot de passe</label>
-                    <input type="password" class="form-control" formControlName="passwordConfirm"
-                        name="inputPasswordConfirm">
+                    <label for="inputPasswordConfirm">Valider votre Mot de passe (*)</label>
+                    <input type="password" class="form-control"
+                        [class.is-valid]="passwordConfirm.touched && !passwordConfirm.errors"
+                        [class.is-invalid]="passwordConfirm.touched && passwordConfirm.errors"
+                        formControlName="passwordConfirm" name="inputPasswordConfirm">
 
-                    <p class="error text-danger"
-                        *ngIf="inscriptionFormulaire.touched && inscriptionFormulaire.errors?.validationmdp">
+                    <p class="text-danger"
+                        *ngIf="passwordConfirm.touched && inscriptionFormulaire.errors?.validationmdp">
                         Les mots de passe ne matchent pas !!!
                     </p>
                 </div>
