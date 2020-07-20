@@ -26,7 +26,6 @@ export class ConnexionComponent implements OnInit {
     this.connexionFormulaire.get('password').valueChanges.subscribe(() => this.connexionFormulaire.get('passwordConfirm').updateValueAndValidity());
   }
 
-
   connexion() {
     if (this.connexionFormulaire.valid) {
       console.log('validation du formulaire');
