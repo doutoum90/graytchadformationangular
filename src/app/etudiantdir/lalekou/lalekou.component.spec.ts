@@ -2,15 +2,15 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LalekouComponent } from './lalekou.component';
 
-describe('LalekouComponent', () => {
+fdescribe('LalekouComponent', () => {
   let component: LalekouComponent;
   let fixture: ComponentFixture<LalekouComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LalekouComponent ]
+      declarations: [LalekouComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +22,5 @@ describe('LalekouComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

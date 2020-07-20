@@ -21,7 +21,9 @@ export class ConnexionComponent implements OnInit {
   ngOnInit(): void {
     this.connexionFormulaire = new FormGroup({
       username: new FormControl('', [Validators.required, Validators.pattern("^[A-Za-z]+$"), Validators.maxLength(10), Validators.minLength(3)]),
-      password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')]),
+      password: new FormControl('',
+        [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,40}$')]
+      ),
     });
     this.connexionFormulaire.get('password').valueChanges.subscribe(() => this.connexionFormulaire.get('passwordConfirm').updateValueAndValidity());
   }
@@ -29,7 +31,7 @@ export class ConnexionComponent implements OnInit {
   connexion() {
     if (this.connexionFormulaire.valid) {
       console.log('validation du formulaire');
-      if (this.username.value === 'ADMIN' && this.password.value === 'ADMIN') {
+      if (this.username.value === 'ADMIN' && this.password.value === 'aDMIN1&tor') {
         this.auth.connect();
         this.router.navigate(['list']);
       }

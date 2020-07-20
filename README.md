@@ -43,3 +43,5 @@
 ## [Leçon 20: Formulaires pilotés par le code : version 2](docs/lecon20.md)
 
 ## [Leçon 21: Les validateurs personnalisés](docs/lecon21.md)
+
+## [Leçon 22: La programmation fonctionnelle](docs/lecon22.md)
