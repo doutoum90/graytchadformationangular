@@ -1,13 +1,7 @@
+import { createReducer, on } from '@ngrx/store';
+import { increment, decrement } from './increment.actions';
+import { TypeINCDEC } from './typeincdec.model';
 
-import { createAction, createReducer, on } from '@ngrx/store';
-
-export const increment = createAction('[compteur] INCREMENTER');
-export const decrement = createAction('[compteur] DECREMENTER');
-
-export interface TypeINCDEC {
-    titre: string;
-    valeur: number;
-}
 export const etatInitial: TypeINCDEC = { titre: 'Mon super titre', valeur: 0 };
 
 export const _operations = createReducer(etatInitial,

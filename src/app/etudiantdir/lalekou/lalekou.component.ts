@@ -9,7 +9,8 @@ import { ModalSuppressionComponent } from 'src/app/core/modal-suppression/modal-
 import { Etudiant } from '../../models/etudiant.model';
 
 import { Store, select } from '@ngrx/store'
-import { increment, decrement, TypeINCDEC } from './increment.reducer';
+import { TypeINCDEC } from './typeincdec.model';
+import { increment, decrement } from './increment.actions';
 
 @Component({
   selector: 'gray-lalekou',
@@ -21,8 +22,8 @@ export class LalekouComponent implements OnInit {
   iconModifier: IconDefinition = faEdit;
   iconZoom: IconDefinition = faSearch;
   etudiants$: Observable<Array<Etudiant>>;
+  element$: Observable<TypeINCDEC>;;
   motCle = '';
-  element$;
   constructor(
     private readonly service: RecuperationDataService,
     private readonly router: Router,
@@ -66,12 +67,10 @@ export class LalekouComponent implements OnInit {
 
   incrementer() {
     this.store.dispatch(increment());
-    // this.element++;
   }
 
   decrementer() {
     this.store.dispatch(decrement());
-    // this.element--;
   }
 }
 
