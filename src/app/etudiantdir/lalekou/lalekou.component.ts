@@ -17,7 +17,7 @@ export class LalekouComponent implements OnInit {
   iconSuppr: IconDefinition = faTrash;
   iconModifier: IconDefinition = faEdit;
   iconZoom: IconDefinition = faSearch;
-  etudiants: Observable<Array<Etudiant>>;
+  etudiants$: Observable<Array<Etudiant>>;
   motCle = '';
 
   constructor(
@@ -26,7 +26,7 @@ export class LalekouComponent implements OnInit {
     private readonly modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.etudiants = this.getData();
+    this.etudiants$ = this.getData();
   }
 
   afficher(path: string, id: number): void {
