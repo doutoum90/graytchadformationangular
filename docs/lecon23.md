@@ -1,6 +1,6 @@
 # Leçon 23 Angular
 
-## [La programmation réactive](https://www.learnrxjs.io/learn-rxjs/operators/creation/create)
+## [La programmation réactive avec rxjs](https://www.learnrxjs.io/learn-rxjs/operators/creation/create)
 
 [Livres](https://xgrommx.github.io/rx-book/index.html)
 
