@@ -40,6 +40,6 @@ Les fonctions pures sont des fonctions :
 
 > Avantages du paradigme fonctionnel
 
-	> facilement testable donc faire à detecter et corriger facilement les bugs eventuels
-	> très utile pour faire des traitements complexes calculs, parallelisation.
-	> jolie pour la lecture
+	+ facilement testable donc faire à detecter et corriger facilement les bugs eventuels
+	+ très utile pour faire des traitements complexes calculs, parallelisation.
+	+ jolie pour la lecture
