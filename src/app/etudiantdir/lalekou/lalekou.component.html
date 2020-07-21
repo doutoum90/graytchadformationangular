@@ -1,10 +1,14 @@
-<p *ngIf="(element$ | async) as element"> {{element.titre}}: {{element.valeur}}</p>
-<button (click)="incrementer()">incrementer</button>
-<button (click)="decrementer()">decrementer</button>
+<div class="row">
+    <div class="col-12 mb-5">
+        <p *ngIf="(element$ | async) as element"> {{element.titre}}: {{element.valeur}}</p>
+        <button class="btn btn-primary mr-3" (click)="incrementer()">incrementer</button>
+        <button class="btn btn-primary" (click)="decrementer()">decrementer</button>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-12 mb-5">
-        <button class=" btn btn-primary" routerLink="ajouter"> Ajouter un étudiant</button>
+        <button class="btn btn-primary" routerLink="ajouter"> Ajouter un étudiant</button>
     </div>
 </div>
 
