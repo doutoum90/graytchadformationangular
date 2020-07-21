@@ -47,3 +47,5 @@
 ## [Leçon 22: La programmation fonctionnelle](docs/lecon22.md)
 
 ## [Leçon 23: La programmation réactive]](docs/lecon23.md)
+
+## [Leçon 24: La Programmation réactive avec ngrx/store](docs/lecon24.md)
