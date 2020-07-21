@@ -45,3 +45,5 @@
 ## [Leçon 21: Les validateurs personnalisés](docs/lecon21.md)
 
 ## [Leçon 22: La programmation fonctionnelle](docs/lecon22.md)
+
+## [Leçon 23: La programmation réactive]](docs/lecon23.md)
