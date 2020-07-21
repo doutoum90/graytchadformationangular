@@ -8,6 +8,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalSuppressionComponent } from 'src/app/core/modal-suppression/modal-suppression.component';
 import { Etudiant } from '../../models/etudiant.model';
 
+import { Store, select } from '@ngrx/store'
+import { increment, decrement, TypeINCDEC } from './increment.reducer';
+
 @Component({
   selector: 'gray-lalekou',
   templateUrl: './lalekou.component.html',
@@ -19,14 +22,16 @@ export class LalekouComponent implements OnInit {
   iconZoom: IconDefinition = faSearch;
   etudiants$: Observable<Array<Etudiant>>;
   motCle = '';
-
+  element$;
   constructor(
     private readonly service: RecuperationDataService,
     private readonly router: Router,
-    private readonly modalService: NgbModal) { }
+    private readonly modalService: NgbModal,
+    private readonly store: Store<{ compter: TypeINCDEC }>) { }
 
   ngOnInit(): void {
     this.etudiants$ = this.getData();
+    this.element$ = this.store.pipe(select('compter'));
   }
 
   afficher(path: string, id: number): void {
@@ -57,6 +62,16 @@ export class LalekouComponent implements OnInit {
 
   getData(): Observable<Array<Etudiant>> {
     return this.service.getEtudiants();
+  }
+
+  incrementer() {
+    this.store.dispatch(increment());
+    // this.element++;
+  }
+
+  decrementer() {
+    this.store.dispatch(decrement());
+    // this.element--;
   }
 }
 

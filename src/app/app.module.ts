@@ -15,6 +15,9 @@ import { InscriptionComponent } from './core/inscription/inscription.component';
 import { ModalSuppressionComponent } from './core/modal-suppression/modal-suppression.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { StoreModule } from '@ngrx/store';
+import { operations } from './etudiantdir/lalekou/increment.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AboutModule,
     ContactModule,
     EtudiantModule,
-    HomeModule
+    HomeModule,
+    StoreModule.forRoot({ compter: operations })
   ],
   providers: [],
   bootstrap: [AppComponent]
