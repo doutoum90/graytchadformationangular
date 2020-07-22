@@ -49,3 +49,5 @@
 ## [Leçon 23: La programmation réactive avec rxjs](docs/lecon23.md)
 
 ## [Leçon 24: La Programmation réactive avec ngrx/store](docs/lecon24.md)
+
+## [Leçon 25: Outils de déboggage ngrx](docs/lecon25.md)
