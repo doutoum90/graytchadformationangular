@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
 import { operations } from './etudiantdir/lalekou/increment.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { operations } from './etudiantdir/lalekou/increment.reducer';
     ContactModule,
     EtudiantModule,
     HomeModule,
-    StoreModule.forRoot({ compter: operations })
+    StoreModule.forRoot({ compter: operations }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
