@@ -13,6 +13,8 @@ import { NombreDirective } from '../directives/nombre.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StoreModule } from '@ngrx/store';
+import * as fromEtudiant from './store/reducers/etudiant.reducer';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     EtudiantRoutingModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,
+    StoreModule.forFeature(fromEtudiant.etudiantFeatureKey, fromEtudiant.reducer)
   ],
   exports: [
     ListStudentComponent,

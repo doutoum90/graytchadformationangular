@@ -7,10 +7,10 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalSuppressionComponent } from 'src/app/core/modal-suppression/modal-suppression.component';
 import { Etudiant } from '../../models/etudiant.model';
-
-import { Store, select } from '@ngrx/store'
 import { TypeINCDEC } from './typeincdec.model';
-import { increment, decrement } from './increment.actions';
+import { Store, select } from '@ngrx/store'
+import { incrementer, decrementer } from '../store/actions/etudiants.actions';
+import { selectFeatureEtudiant, EtudiantFeature } from '../store/selectors/etudiant.selectors';
 
 @Component({
   selector: 'gray-lalekou',
@@ -28,11 +28,12 @@ export class LalekouComponent implements OnInit {
     private readonly service: RecuperationDataService,
     private readonly router: Router,
     private readonly modalService: NgbModal,
-    private readonly store: Store<{ compter: TypeINCDEC }>) { }
+    private readonly store: Store<EtudiantFeature>
+  ) { }
 
   ngOnInit(): void {
     this.etudiants$ = this.getData();
-    this.element$ = this.store.pipe(select('compter'));
+    this.element$ = this.store.pipe(select(selectFeatureEtudiant))
   }
 
   afficher(path: string, id: number): void {
@@ -66,11 +67,11 @@ export class LalekouComponent implements OnInit {
   }
 
   incrementer() {
-    this.store.dispatch(increment());
+    this.store.dispatch(incrementer({ valeur: 1 }));
   }
 
   decrementer() {
-    this.store.dispatch(decrement());
+    this.store.dispatch(decrementer({ valeur: 1 }));
   }
 }
 

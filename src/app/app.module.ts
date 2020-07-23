@@ -15,10 +15,10 @@ import { InscriptionComponent } from './core/inscription/inscription.component';
 import { ModalSuppressionComponent } from './core/modal-suppression/modal-suppression.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { StoreModule } from '@ngrx/store';
-import { operations } from './etudiantdir/lalekou/increment.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -39,8 +39,15 @@ import { environment } from '../environments/environment';
     ContactModule,
     EtudiantModule,
     HomeModule,
-    StoreModule.forRoot({ compter: operations }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreModule.forRoot(reducers, {
+      metaReducers, 
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+      }
+    }),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [],
   bootstrap: [AppComponent]
