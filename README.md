@@ -51,3 +51,5 @@
 ## [Leçon 24: La Programmation réactive avec ngrx/store](docs/lecon24.md)
 
 ## [Leçon 25: Outils de déboggage ngrx](docs/lecon25.md)
+
+## [Leçon 26: ngrx/store en plus élégant](docs/lecon26.md)
