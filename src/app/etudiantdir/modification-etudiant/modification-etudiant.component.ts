@@ -3,6 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { RecuperationDataService } from 'src/app/services/recuperation-data.service';
 import { Observable } from 'rxjs';
 import { Etudiant } from '../../models/etudiant.model';
+import { Store, select } from '@ngrx/store';
+import {  selectFeatureEtudiant, EtudiantsFeature } from '../store/selectors/etudiant.selectors';
+import { loadEtudiant } from '../store/actions/etudiants.actions';
+import { EtudiantState } from '../store/reducers/etudiant.reducer';
 
 @Component({
   selector: 'gray-modification-etudiant',
@@ -11,12 +15,16 @@ import { Etudiant } from '../../models/etudiant.model';
 })
 export class ModificationEtudiantComponent implements OnInit {
 
-  etudiant: Observable<Etudiant>;
+  etudiant$: Observable<Etudiant>;
   constructor(private readonly activated: ActivatedRoute,
-    private readonly etudiantService: RecuperationDataService) { }
+    private readonly store: Store<EtudiantsFeature>
+  ) { }
 
   ngOnInit(): void {
-    this.etudiant = this.etudiantService.getEtudiant(Number(this.activated.snapshot.params.id));
+    this.store.dispatch(loadEtudiant({ id: Number(this.activated.snapshot.params.id) }));
+    this.etudiant$ = this.store.pipe(select(selectFeatureEtudiant));
+
+    // = this.etudiantService.getEtudiant();
   }
 
 }

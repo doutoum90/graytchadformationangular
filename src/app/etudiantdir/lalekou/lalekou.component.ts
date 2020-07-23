@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { RecuperationDataService } from '../../services/recuperation-data.service';
 import { faSearch, faTrash, faEdit, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,10 +7,9 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalSuppressionComponent } from 'src/app/core/modal-suppression/modal-suppression.component';
 import { Etudiant } from '../../models/etudiant.model';
-import { TypeINCDEC } from './typeincdec.model';
 import { Store, select } from '@ngrx/store'
-import { incrementer, decrementer } from '../store/actions/etudiants.actions';
-import { selectFeatureEtudiant, EtudiantFeature } from '../store/selectors/etudiant.selectors';
+import { selectFeatureEtudiants, EtudiantsFeature } from '../store/selectors/etudiant.selectors';
+import { loadEtudiants } from '../store/actions/etudiants.actions';
 
 @Component({
   selector: 'gray-lalekou',
@@ -21,19 +20,18 @@ export class LalekouComponent implements OnInit {
   iconSuppr: IconDefinition = faTrash;
   iconModifier: IconDefinition = faEdit;
   iconZoom: IconDefinition = faSearch;
-  etudiants$: Observable<Array<Etudiant>>;
-  element$: Observable<TypeINCDEC>;;
+  etudiants$: Observable<any>;
   motCle = '';
   constructor(
     private readonly service: RecuperationDataService,
     private readonly router: Router,
     private readonly modalService: NgbModal,
-    private readonly store: Store<EtudiantFeature>
+    private readonly store: Store<EtudiantsFeature>
   ) { }
 
   ngOnInit(): void {
-    this.etudiants$ = this.getData();
-    this.element$ = this.store.pipe(select(selectFeatureEtudiant))
+    this.store.dispatch(loadEtudiants());
+    this.etudiants$ = this.store.pipe(select(selectFeatureEtudiants));
   }
 
   afficher(path: string, id: number): void {
@@ -64,14 +62,6 @@ export class LalekouComponent implements OnInit {
 
   getData(): Observable<Array<Etudiant>> {
     return this.service.getEtudiants();
-  }
-
-  incrementer() {
-    this.store.dispatch(incrementer({ valeur: 1 }));
-  }
-
-  decrementer() {
-    this.store.dispatch(decrementer({ valeur: 1 }));
   }
 }
 

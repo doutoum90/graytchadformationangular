@@ -1,6 +1,6 @@
 <p>Modifier les informations de l'étudiant</p>
 
-<form *ngIf=" (etudiant |async) as et">
+<form *ngIf=" (etudiant$ |async) as et">
     <div class="form-group">
         <label for="inputNom">Nom</label>
         <input type="text" [value]="et.nom" grayMajuscule class="form-control" id="inputNom" aria-describedby="inputNomAide">

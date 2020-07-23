@@ -15,6 +15,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';
 import * as fromEtudiant from './store/reducers/etudiant.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { EtudiantEffects } from './store/effects/etudiant.effects';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import * as fromEtudiant from './store/reducers/etudiant.reducer';
     EtudiantRoutingModule,
     FontAwesomeModule,
     NgbModule,
-    StoreModule.forFeature(fromEtudiant.etudiantFeatureKey, fromEtudiant.reducer)
+    StoreModule.forFeature(fromEtudiant.etudiantFeatureKey, fromEtudiant.reducer),
+    EffectsModule.forFeature([EtudiantEffects])
   ],
   exports: [
     ListStudentComponent,

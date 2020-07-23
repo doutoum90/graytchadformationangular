@@ -1,13 +1,21 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { TypeINCDEC } from '../../lalekou/typeincdec.model';
+import { Etudiant } from 'src/app/models/etudiant.model';
+import { EtudiantState } from '../reducers/etudiant.reducer';
 
-export interface EtudiantFeature {
-    etudiant: TypeINCDEC;
+export interface EtudiantsFeature {
+    etudiant: EtudiantState;
 }
 
-export const etudiantSelecteurFeature = (state: EtudiantFeature) => state.etudiant;
+
+
+export const etudiantsSelecteurFeature = (state: EtudiantsFeature) => state.etudiant;
+
+export const selectFeatureEtudiants = createSelector(
+    etudiantsSelecteurFeature,
+    (state: EtudiantState) => state.etudiants
+);
 
 export const selectFeatureEtudiant = createSelector(
-    etudiantSelecteurFeature,
-    (state: TypeINCDEC) => state
+    etudiantsSelecteurFeature,
+    (state: EtudiantState) => state.etudiant
 );

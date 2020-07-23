@@ -7,7 +7,7 @@ import { Etudiant } from '../models/etudiant.model';
 export class FiltrePipe implements PipeTransform {
 
   transform(value: Array<Etudiant>, ...args: any[]): Array<Etudiant> {
-    return value.filter(etudiant => etudiant.nom.includes(args[0]));
+    return value?.filter(etudiant => etudiant.nom.includes(args[0]));
   }
 
 }
