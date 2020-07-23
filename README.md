@@ -53,3 +53,5 @@
 ## [Leçon 25: Outils de déboggage ngrx](docs/lecon25.md)
 
 ## [Leçon 26: ngrx/store en plus élégant](docs/lecon26.md)
+
+## [Leçon 27: Charger la liste des étudiants avec ngrx/store : Les Effects](docs/lecon27.md)
