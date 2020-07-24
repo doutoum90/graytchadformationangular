@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RecuperationDataService } from 'src/app/services/recuperation-data.service';
 import { Observable } from 'rxjs';
 import { Etudiant } from '../../models/etudiant.model';
 import { Store, select } from '@ngrx/store';
-import {  selectFeatureEtudiant, EtudiantsFeature } from '../store/selectors/etudiant.selectors';
+import { selectFeatureEtudiant, EtudiantsFeature } from '../store/selectors/etudiant.selectors';
 import { loadEtudiant } from '../store/actions/etudiants.actions';
-import { EtudiantState } from '../store/reducers/etudiant.reducer';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'gray-modification-etudiant',
@@ -14,17 +14,40 @@ import { EtudiantState } from '../store/reducers/etudiant.reducer';
   styleUrls: ['./modification-etudiant.component.scss']
 })
 export class ModificationEtudiantComponent implements OnInit {
-
-  etudiant$: Observable<Etudiant>;
+  modificationFormulaire: FormGroup;
+  etudiant$: Observable<any>;
   constructor(private readonly activated: ActivatedRoute,
-    private readonly store: Store<EtudiantsFeature>
+    private readonly store: Store<EtudiantsFeature>,
+    private readonly formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
     this.store.dispatch(loadEtudiant({ id: Number(this.activated.snapshot.params.id) }));
-    this.etudiant$ = this.store.pipe(select(selectFeatureEtudiant));
-
-    // = this.etudiantService.getEtudiant();
+    this.modificationFormulaire = this.formBuilder.group({
+      nom: this.formBuilder.control(''),
+      prenom: this.formBuilder.group({
+        prenom1: this.formBuilder.control(''),
+        prenom2: this.formBuilder.control(''),
+      }),
+      age: this.formBuilder.control(''),
+      dateNaissance: this.formBuilder.control(''),
+      fraisSubsistance: this.formBuilder.control(''),
+      note: this.formBuilder.control(''),
+    });
+    this.etudiant$ = this.store.pipe(
+      select(selectFeatureEtudiant),
+      tap(etudiant => this.modificationFormulaire.patchValue(etudiant)));
+  }
+  modifierEtudiant() {
+    console.log(this.modificationFormulaire.value);
   }
 
+
+  get prenom() {
+    return this.modificationFormulaire.get('prenom');
+  }
+
+  reinit() {
+    this.modificationFormulaire.reset();
+  }
 }

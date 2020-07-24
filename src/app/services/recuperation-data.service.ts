@@ -49,7 +49,6 @@ export class RecuperationDataService {
   }
 
   getEtudiant(id: number): Observable<Etudiant> {
-    console.log(id, this.etudiants.find(etudiant => etudiant.id === id));
     return of(this.etudiants.find(etudiant => etudiant.id === id));
   }
 }

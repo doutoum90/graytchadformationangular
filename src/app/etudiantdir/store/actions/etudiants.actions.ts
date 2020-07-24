@@ -18,12 +18,12 @@ export const loadEtudiantsFailure = createAction(
 
 export const loadEtudiant = createAction(
   '[Etudiants] Load one Etudiants',
-  props <{ id:number }>()
+  props<{ id: number }>()
 );
 
 export const loadEtudiantSuccess = createAction(
   '[Etudiants] Load one Etudiants Success',
-  props<{ etudiant: Etudiant}>()
+  props<{ etudiant: Etudiant }>()
 );
 
 export const loadEtudiantFailure = createAction(

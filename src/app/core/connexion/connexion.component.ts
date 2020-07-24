@@ -25,7 +25,6 @@ export class ConnexionComponent implements OnInit {
         [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,40}$')]
       ),
     });
-    this.connexionFormulaire.get('password').valueChanges.subscribe(() => this.connexionFormulaire.get('passwordConfirm').updateValueAndValidity());
   }
 
   connexion() {

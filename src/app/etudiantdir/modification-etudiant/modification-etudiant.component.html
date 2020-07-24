@@ -1,29 +1,70 @@
-<p>Modifier les informations de l'étudiant</p>
 
-<form *ngIf=" (etudiant$ |async) as et">
-    <div class="form-group">
-        <label for="inputNom">Nom</label>
-        <input type="text" [value]="et.nom" grayMajuscule class="form-control" id="inputNom" aria-describedby="inputNomAide">
-        <small id="inputNomAide" class="form-text text-muted">Taper ici pour modifier votre nom.</small>
+<div id="container">
+    <div class="row">
+        <div class="col-12">
+            <h4>Modifier les informations de l'étudiant</h4>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="inputPrenom">Prenom1</label>
-        <input type="text" [value]="(et.prenom) ? et.prenom.prenom1: ''" class="form-control"
-        aria-describedby="inputPrenomAide" id="inputPrenom">
-            <small id="inputPrenomAide" class="form-text text-muted">Taper ici pour modifier votre premier prenom.</small>
-    </div>
+    <form  *ngIf=" (etudiant$ |async) as et" [formGroup]="modificationFormulaire" (ngSubmit)="modifierEtudiant()">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="inputNom">Nom</label>
+                    <input type="text" tabindex=0 formControlName="nom" class="form-control" id="inputNom">
+                </div>
+                <div class="form-group">
+                    <label for="inputAge">Age</label>
+                    <input type="text" tabindex=1 formControlName="age" class="form-control" id="inputAge">
+                </div>
 
-    <div class="form-group">
-        <label for="inputPrenom2">Prenom2</label>
-        <input type="email" [value]="(et.prenom) ? et.prenom.prenom2: ''" class="form-control" id="inputPrenom2"
-            aria-describedby="inputPrenom2Aide">
-        <small id="inputPrenom2Aide" class="form-text text-muted">Taper ici pour modifier votre second prenom.</small>
-    </div>
-    <div class="form-group">
-        <label for="inputAge">Age</label>
-        <input type="text" grayNombre="true" [value]="et.age" class="form-control" id="inputAge" aria-describedby="inputAgeAide">
-        <small id="inputAgeAide" class="form-text text-muted">Taper ici pour modifier votre Age.</small>
-    </div>
+                <div class="form-group">
+                    <label for="inputDateNaissance">Date de naissance</label>
+                    <input type="date" tabindex=2 formControlName="dateNaissance" class="form-control"
+                        id="inputDateNaissance">
+                </div>
+                <div class="form-group">
+                    <label for="inputNote">Note</label>
+                    <div class="input-group">
+                        <input type="number" tabindex=3 formControlName="note" class="form-control" id="inputNote">
+                        <div class="input-group-append">
+                            <span class="input-group-text">/ 20</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div [formGroup]="prenom">
+                    <div class="form-group">
+                        <label for="inputPrenom1">Prenom1</label>
+                        <input type="text" tabindex=0 formControlName="prenom1" class="form-control" id="inputPrenom1">
+                    </div>
 
-    <button type="submit" class="btn btn-primary">Modifier</button>
-</form>
+                    <div class="form-group">
+                        <label for="inputPrenom2">Prenom2</label>
+                        <input type="text" tabindex=1 formControlName="prenom2" class="form-control" id="inputPrenom2">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputFraisSubs">Frais de subsistance</label>
+                    <div class="input-group">
+                        <input type="text" tabindex=2 formControlName="fraisSubsistance" class="form-control"
+                            id="inputFraisSubs">
+                        <div class="input-group-append">
+                            <span class="input-group-text">FCFA</span>
+                            <span class="input-group-text">0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-12">
+                <button type="button" tabindex=4 (click)="reinit()"
+                    class="btn btn-info btn-lg mr-3">Réinitialiser</button>
+                <button type="submit" tabindex=5 class="btn btn-primary btn-lg">Modifier</button>
+            </div>
+        </div>
+    </form>
+
+</div>
