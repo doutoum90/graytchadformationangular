@@ -24,9 +24,7 @@ export class EtudiantEffects {
     ofType(actions.loadEtudiant),
     concatMap((action) => this.etudiantService.getEtudiant(action.id)
       .pipe(
-        map(etudiant => {
-          return actions.loadEtudiantSuccess({ etudiant: etudiant });
-        }),
+        map(etudiant =>actions.loadEtudiantSuccess({ etudiantSelectionne: etudiant })),
         catchError(() => of(actions.loadEtudiantFailure({ error: 'Erreur' })))
       ))
   )

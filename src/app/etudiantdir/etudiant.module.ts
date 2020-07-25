@@ -17,6 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import * as fromEtudiant from './store/reducers/etudiant.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { EtudiantEffects } from './store/effects/etudiant.effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { EtudiantEffects } from './store/effects/etudiant.effects';
     EtudiantRoutingModule,
     FontAwesomeModule,
     NgbModule,
+    HttpClientModule,
     StoreModule.forFeature(fromEtudiant.etudiantFeatureKey, fromEtudiant.reducer),
     EffectsModule.forFeature([EtudiantEffects])
   ],

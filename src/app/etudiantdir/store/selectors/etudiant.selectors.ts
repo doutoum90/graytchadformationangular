@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { Etudiant } from 'src/app/models/etudiant.model';
-import { EtudiantState } from '../reducers/etudiant.reducer';
+import { EtudiantState, selectAll, etudiantFeatureKey } from '../reducers/etudiant.reducer';
 
 export interface EtudiantsFeature {
     etudiant: EtudiantState;
@@ -8,14 +8,14 @@ export interface EtudiantsFeature {
 
 
 
-export const etudiantsSelecteurFeature = (state: EtudiantsFeature) => state.etudiant;
+export const etudiantsSelecteurFeature = createFeatureSelector<EtudiantState>(etudiantFeatureKey);
 
 export const selectFeatureEtudiants = createSelector(
     etudiantsSelecteurFeature,
-    (state: EtudiantState) => state.etudiants
+    selectAll
 );
 
 export const selectFeatureEtudiant = createSelector(
     etudiantsSelecteurFeature,
-    (state: EtudiantState) => state.etudiant
+    (state: EtudiantState) => state.etudiantSelectionne
 );

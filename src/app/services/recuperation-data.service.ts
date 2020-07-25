@@ -1,54 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Etudiant } from '../models/etudiant.model';
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecuperationDataService {
-  private etudiants = <Array<Etudiant>>[
-    {
-      id: 1, nom: 'ISSA',
-      prenom: { prenom1: 'Daoud', prenom2: 'Mahamat' },
-      age: 25,
-      dateNaissance: new Date('01/01/1992'),
-      fraisSubsistance: 100000,
-      note: 0.8
-    },
-    {
-      id: 2,
-      nom: 'AHMAT',
-      age: 25,
-      dateNaissance: new Date('01/01/1996'),
-      fraisSubsistance: 100000,
-      note: 0.7
-    },
-    {
-      id: 3,
-      nom: 'IDRISS',
-      prenom: { prenom1: 'ALI', prenom2: 'MAHMOUD' },
-      age: 25,
-      dateNaissance: new Date('01/01/2000'),
-      fraisSubsistance: 10000000,
-      note: 0.9
-    },
-    {
-      id: 4,
-      nom: 'MOUSSA',
-      prenom: { prenom1: 'Daoud' },
-      age: 25,
-      dateNaissance: new Date('01/01/1994'),
-      fraisSubsistance: 100000,
-      note: 0.4
-    }
-  ];
-  constructor() { }
+  API = 'http://localhost:3000';
+  constructor(private http: HttpClient) { }
 
   getEtudiants(): Observable<Array<Etudiant>> {
-    return of(this.etudiants);
+    return this.http.get<Array<Etudiant>>(this.API + '/etudiants');
   }
 
   getEtudiant(id: number): Observable<Etudiant> {
-    return of(this.etudiants.find(etudiant => etudiant.id === id));
+    return this.http.get<Etudiant>(this.API + '/etudiants/' + id);
   }
 }

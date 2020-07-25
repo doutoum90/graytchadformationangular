@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Etudiant } from '../../models/etudiant.model';
 import { Store, select } from '@ngrx/store';
 import { selectFeatureEtudiant, EtudiantsFeature } from '../store/selectors/etudiant.selectors';
 import { loadEtudiant } from '../store/actions/etudiants.actions';
