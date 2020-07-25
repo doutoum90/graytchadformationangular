@@ -55,3 +55,5 @@
 ## [Leçon 26: ngrx/store en plus élégant](docs/lecon26.md)
 
 ## [Leçon 27: Charger la liste des étudiants avec ngrx/store : Les Effects](docs/lecon27.md)
+
+## [Leçon 28: Optimisation avec les entités:  @ngrx/entity](docs/lecon28.md)
