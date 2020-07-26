@@ -25,15 +25,16 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "@ngrx/effects": "^9.2.0",
+    "@ngrx/entity": "^9.0.0",
     "@ngrx/store": "^9.2.0",
     "@ngrx/store-devtools": "^9.2.0",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.5",
+    "ts-md5": "^1.2.7",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.3",
-    "@ngrx/entity": "^9.0.0"
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.1",

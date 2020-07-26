@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from 'src/app/services/authentification.service';
 import { Router } from '@angular/router'; import { FormControl, FormGroup, Validators } from '@angular/forms';
-;
+import { Md5 } from 'ts-md5/dist/md5';
 
-interface User {
-  password?: string;
-  username?: string;
-}
+
 @Component({
   selector: 'gray-connexion',
   templateUrl: './connexion.component.html',
@@ -14,6 +11,7 @@ interface User {
 })
 export class ConnexionComponent implements OnInit {
   connexionFormulaire: FormGroup;
+  erreurConnexion = false;
   constructor(
     private readonly auth: AuthentificationService,
     private readonly router: Router) { }
@@ -29,11 +27,20 @@ export class ConnexionComponent implements OnInit {
 
   connexion() {
     if (this.connexionFormulaire.valid) {
-      console.log('validation du formulaire');
-      if (this.username.value === 'ADMIN' && this.password.value === 'aDMIN1&tor') {
-        this.auth.connect();
-        this.router.navigate(['list']);
-      }
+     
+      this.auth.connexion(this.username.value, Md5.hashStr(this.password.value)).subscribe(
+        users => {
+          if (users.length == 0) {
+            this.erreurConnexion = true;
+            // mot de passe ou username incorrect
+          } else {
+            this.auth.connect(users[0]);
+            this.router.navigate(['list']);
+          }
+        },
+        err => {
+          console.error('erreur d\'api', err);
+        });
     }
 
   }

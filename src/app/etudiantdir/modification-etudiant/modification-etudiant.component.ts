@@ -38,11 +38,9 @@ export class ModificationEtudiantComponent implements OnInit {
     });
     this.etudiant$ = this.store.pipe(
       select(selectFeatureEtudiant),
-      tap(etudiant => {
-        console.log(etudiant);
+      tap(etudiant =>
         this.modificationFormulaire.patchValue(
-          { ...etudiant, dateNaissance: this.formatDate(etudiant?.dateNaissance) });
-      }
+          { ...etudiant, dateNaissance: this.formatDate(etudiant?.dateNaissance) })
       ));
   }
   modifierEtudiant() {

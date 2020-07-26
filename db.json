@@ -51,14 +51,9 @@
   ],
   "users": [
     {
-      "id": 1,
-      "username": "ADMIN",
-      "password": "aDMIN1&tor"
-    },
-    {
-      "id": 2,
-      "username": "ADMIN2",
-      "password": "aDMIN1&tor"
+      "username": "USER",
+      "password": "1d47af8e87a6e8282b0619015a2f20be",
+      "id": 1
     }
   ]
 }

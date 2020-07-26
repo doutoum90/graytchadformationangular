@@ -20,6 +20,7 @@ import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
+import { ChangerMDPComponent } from './core/changer-mdp/changer-mdp.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { EffectsModule } from '@ngrx/effects';
     ConnexionComponent,
     InscriptionComponent,
     ModalSuppressionComponent,
+    ChangerMDPComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { verification } from '../../validators/verificationMPasse.validator';
+import { AuthentificationService } from 'src/app/services/authentification.service';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
+import { Md5 } from 'ts-md5/dist/md5';
 
 @Component({
   selector: 'gray-inscription',
@@ -11,7 +15,9 @@ export class InscriptionComponent implements OnInit {
   inscriptionFormulaire: FormGroup;
 
 
-  constructor() { }
+  constructor(
+    private readonly authService: AuthentificationService,
+    private readonly router: Router) { }
 
   ngOnInit(): void {
     this.inscriptionFormulaire = new FormGroup({
@@ -24,7 +30,15 @@ export class InscriptionComponent implements OnInit {
 
   inscription() {
     if (this.inscriptionFormulaire.valid) {
-      console.log(this.inscriptionFormulaire.value);
+      const user: User = { username: this.username.value, password: Md5.hashStr(this.password.value) };
+      this.authService.inscription(user).subscribe(
+        v => {
+          this.router.navigate(['connexion']);
+        },
+        err => {
+          console.error('erreur d\'inscription', err);
+        });
+
     }
   }
   estValide(name: string): boolean {
