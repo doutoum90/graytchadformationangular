@@ -15,8 +15,12 @@
     {
       "id": 2,
       "nom": "AHMAT",
+      "prenom": {
+        "prenom1": "MODIFIE",
+        "prenom2": "MODIFIE"
+      },
       "age": 25,
-      "dateNaissance": "1996-01-01T23:15:30.000Z",
+      "dateNaissance": "1996-01-02",
       "fraisSubsistance": 100000,
       "note": 0.7
     },

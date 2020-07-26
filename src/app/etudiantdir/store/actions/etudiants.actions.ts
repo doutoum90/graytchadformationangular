@@ -51,7 +51,7 @@ export const createEtudiantFailure = createAction(
 // mettre à jour un etudiant
 export const updateEtudiant = createAction(
   '[Etudiants] update one Etudiant',
-  props<{  etudiant: Update<Etudiant>}>()
+  props<{ etudiant: Update<Etudiant> }>()
 );
 
 // supprimer un etudiant

@@ -47,7 +47,7 @@ export class EtudiantEffects {
 
   updateEtudiant$ = createEffect(() => this.actions$.pipe(
     ofType(actions.updateEtudiant),
-    concatMap((action) => this.etudiantService.mettreAjourEtudiant(action.id, action.etudiant)),
+    concatMap((action) => this.etudiantService.mettreAjourEtudiant(action.etudiant.id, action.etudiant.changes)),
     tap(() => this.router.navigate(['list']))
   ),
     { dispatch: false }

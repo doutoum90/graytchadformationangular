@@ -24,7 +24,7 @@ export class RecuperationDataService {
     return this.http.post<Etudiant>(`${this.API}/etudiants/`, donnees);
   }
 
-  mettreAjourEtudiant(id: number, donnees: Partial<Etudiant>): Observable<Etudiant> {
+  mettreAjourEtudiant(id: string | number, donnees: Partial<Etudiant>): Observable<Etudiant> {
     console.log(id);
     return this.http.put<Etudiant>(`${this.API}/etudiants/${id}`, donnees);
   }
