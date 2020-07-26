@@ -1,6 +1,6 @@
 import { Identite } from './identite.model';
 export interface Etudiant {
-    id: number;
+    id?: number;
     nom: String;
     prenom?: Identite;
     age: number;

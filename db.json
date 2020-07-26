@@ -33,27 +33,16 @@
       "note": 0.9
     },
     {
-      "id": 4,
-      "nom": "MOUSSA",
+      "id": 5,
+      "nom": "EBIDAMI",
       "prenom": {
-        "prenom1": "Daoud"
+        "prenom1": "AHMAT",
+        "prenom2": "EBIDAMI"
       },
-      "age": 25,
-      "dateNaissance": "1994-01-01T23:15:30.000Z",
-      "fraisSubsistance": 100000,
-      "note": 0.4
-    },
-    {
-      "nom": "MOUSTAPHA",
-      "prenom": {
-        "prenom1": "Ahmat",
-        "prenom2": "Khalid"
-      },
-      "age": 25,
-      "dateNaissance": "1970-01-01T23:15:30.000Z",
-      "fraisSubsistance": 100000,
-      "note": 0.4,
-      "id": 5
+      "age": "50",
+      "dateNaissance": "2020-07-02",
+      "fraisSubsistance": "4554545",
+      "note": 2233
     }
   ],
   "users": [

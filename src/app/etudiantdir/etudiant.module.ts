@@ -18,6 +18,7 @@ import * as fromEtudiant from './store/reducers/etudiant.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { EtudiantEffects } from './store/effects/etudiant.effects';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     MajusculeDirective,
     AjoutEtudiantComponent,
     NombreDirective,
-    ModificationEtudiantComponent
+    ModificationEtudiantComponent,
+    DetailComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { EtudiantState } from '../store/reducers/etudiant.reducer';
+import { createEtudiant } from '../store/actions/etudiants.actions';
 
 @Component({
   selector: 'gray-ajout-etudiant',
@@ -8,7 +11,9 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class AjoutEtudiantComponent implements OnInit {
   ajoutFormulaire: FormGroup;
-  constructor(private readonly formBuilder: FormBuilder) { }
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private readonly store: Store<EtudiantState>) { }
 
   ngOnInit(): void {
     this.ajoutFormulaire = this.formBuilder.group({
@@ -23,16 +28,16 @@ export class AjoutEtudiantComponent implements OnInit {
       note: this.formBuilder.control(''),
     })
   }
-  
+
   ajouterEtudiant() {
-    console.log(this.ajoutFormulaire.value);
+    this.store.dispatch(createEtudiant({ etudiant: this.ajoutFormulaire.value }));
   }
 
 
   get prenom() {
     return this.ajoutFormulaire.get('prenom');
   }
-  
+
   reinit() {
     this.ajoutFormulaire.reset();
   }

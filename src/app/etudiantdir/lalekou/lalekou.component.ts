@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, from } from 'rxjs';
+import { Observable } from 'rxjs';
 import { RecuperationDataService } from '../../services/recuperation-data.service';
 import { faSearch, faTrash, faEdit, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,7 +9,7 @@ import { ModalSuppressionComponent } from 'src/app/core/modal-suppression/modal-
 import { Etudiant } from '../../models/etudiant.model';
 import { Store, select } from '@ngrx/store'
 import { selectFeatureEtudiants, EtudiantsFeature } from '../store/selectors/etudiant.selectors';
-import { loadEtudiants } from '../store/actions/etudiants.actions';
+import { loadEtudiants, deleteEtudiant } from '../store/actions/etudiants.actions';
 
 @Component({
   selector: 'gray-lalekou',
@@ -47,7 +47,8 @@ export class LalekouComponent implements OnInit {
     }
     ref.result.then((result) => {
       // fermeture de la modal avec succes
-      console.log('suppression de l\'etudiant avec l\'id', id);
+      this.store.dispatch(deleteEtudiant({ id: id }));
+      this.store.dispatch(loadEtudiants());
     }, (reason) => {
       console.log('fermeture pour autre cause');
       // fermeture anormale avec la valeur reason
@@ -57,7 +58,7 @@ export class LalekouComponent implements OnInit {
     this.router.navigate(['list/modifier', id]);
   }
   detail(id: number) {
-    // this.router.navigate(['list/modifier', id]);
+    this.router.navigate(['list/detail', id]);
   }
 
   getData(): Observable<Array<Etudiant>> {

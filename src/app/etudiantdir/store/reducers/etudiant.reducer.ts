@@ -17,13 +17,34 @@ export const initialState: EtudiantState = adapterEtudiant.getInitialState({
 
 export const reducer = createReducer(
   initialState,
+  // charger tous étudiants
   on(actions.loadEtudiantsSuccess,
     (state: EtudiantState, action: any) => adapterEtudiant.addAll(action.etudiants, state)),
   on(actions.loadEtudiantsFailure,
     (state: EtudiantState, action: any) => <any>{ ...state, error: action.error }),
+  // charger un étudiant
   on(actions.loadEtudiantSuccess,
     (state: EtudiantState, action: any) => <any>{ ...state, etudiantSelectionne: action.etudiantSelectionne }),
   on(actions.loadEtudiantFailure,
+    (state: EtudiantState, action: any) => <any>{ ...state, error: action.error }),
+  // creer un étudiant
+
+  on(actions.createEtudiantSuccess,
+    (state: EtudiantState, action: any) => adapterEtudiant.addOne(action.etudiants, state)),
+  on(actions.createEtudiantSuccess,
+    (state: EtudiantState, action: any) => <any>{ ...state, error: action.error }),
+  // mettre à jour un étudiant
+
+  on(actions.createEtudiantSuccess,
+    (state: EtudiantState, action: any) => state),
+  on(actions.createEtudiantSuccess,
+    (state: EtudiantState, action: any) => <any>{ ...state, error: action.error }),
+
+  // supprimer un étudiant
+
+  on(actions.createEtudiantSuccess,
+    (state: EtudiantState, action: any) => state),
+  on(actions.createEtudiantSuccess,
     (state: EtudiantState, action: any) => <any>{ ...state, error: action.error })
 );
 

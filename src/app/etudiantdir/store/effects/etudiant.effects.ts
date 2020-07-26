@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as actions from '../actions/etudiants.actions';
-import { mergeMap, map, catchError, concatMap } from 'rxjs/operators';
+import { mergeMap, map, catchError, concatMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { RecuperationDataService } from 'src/app/services/recuperation-data.service';
+import { Router } from '@angular/router';
 
 
 
@@ -14,7 +15,7 @@ export class EtudiantEffects {
     ofType(actions.loadEtudiants),
     mergeMap(() => this.etudiantService.getEtudiants()
       .pipe(
-        map(etudiants => actions.loadEtudiantsSuccess({ etudiants: etudiants })),
+        map(etudiants => actions.loadEtudiantsSuccess({ etudiants })),
         catchError(() => of(actions.loadEtudiantsFailure({ error: 'Erreur' })))
       ))
   )
@@ -24,13 +25,46 @@ export class EtudiantEffects {
     ofType(actions.loadEtudiant),
     concatMap((action) => this.etudiantService.getEtudiant(action.id)
       .pipe(
-        map(etudiant =>actions.loadEtudiantSuccess({ etudiantSelectionne: etudiant })),
+        map(etudiantSelectionne => actions.loadEtudiantSuccess({ etudiantSelectionne })),
         catchError(() => of(actions.loadEtudiantFailure({ error: 'Erreur' })))
       ))
   )
   );
 
+  createEtudiant$ = createEffect(() => this.actions$.pipe(
+    ofType(actions.createEtudiant),
+    concatMap((action) => this.etudiantService.creerEtudiant(action.etudiant)
+      .pipe(
+        map(etudiant => actions.createEtudiantSuccess({ etudiant })),
+        catchError(() => of(actions.createEtudiantFailure({ error: 'Erreur' })))
+      )
+    ),
+    tap(() => this.router.navigate(['list']))
+  ),
+
+  );
+
+
+  updateEtudiant$ = createEffect(() => this.actions$.pipe(
+    ofType(actions.updateEtudiant),
+    concatMap((action) => this.etudiantService.mettreAjourEtudiant(action.id, action.etudiant)),
+    tap(() => this.router.navigate(['list']))
+  ),
+    { dispatch: false }
+  );
+
+  deleteEtudiant$ = createEffect(() => this.actions$.pipe(
+    ofType(actions.deleteEtudiant),
+    concatMap((action) => this.etudiantService.supprimerEtudiant(action.id)
+      .pipe(
+        map((data) => actions.deleteEtudiantSuccess({ data })),
+        catchError(() => of(actions.deleteEtudiantFailure({ error: 'Erreur' })))
+      ))
+  )
+  );
+
   constructor(private actions$: Actions,
-    private readonly etudiantService: RecuperationDataService) { }
+    private readonly etudiantService: RecuperationDataService,
+    private readonly router: Router) { }
 
 }
