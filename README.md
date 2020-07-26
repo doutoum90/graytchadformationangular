@@ -61,3 +61,5 @@
 ## [Leçon 29: Api rest et HTTP](docs/lecon29.md)
 
 ## [Leçon 30: CRUD : Etudiants](docs/lecon30.md)
+
+## [Leçon 31: CRUD : Users](docs/lecon31.md)
