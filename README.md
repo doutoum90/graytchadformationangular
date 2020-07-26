@@ -59,3 +59,5 @@
 ## [Leçon 28: Optimisation avec les entités:  @ngrx/entity](docs/lecon28.md)
 
 ## [Leçon 29: Api rest et HTTP](docs/lecon29.md)
+
+## [Leçon 30: CRUD : Etudiants](docs/lecon30.md)
