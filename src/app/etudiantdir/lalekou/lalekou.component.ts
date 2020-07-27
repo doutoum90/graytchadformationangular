@@ -6,9 +6,8 @@ import { faSearch, faTrash, faEdit, IconDefinition } from '@fortawesome/free-sol
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalSuppressionComponent } from 'src/app/core/modal-suppression/modal-suppression.component';
-import { Etudiant } from '../../models/etudiant.model';
 import { Store, select } from '@ngrx/store'
-import { selectFeatureEtudiants, EtudiantsFeature, selectEtudiantTotal } from '../store/selectors/etudiant.selectors';
+import { selectFeatureEtudiants, EtudiantsFeature } from '../store/selectors/etudiant.selectors';
 import { loadEtudiants, deleteEtudiant } from '../store/actions/etudiants.actions';
 import { mergeMap, map, debounceTime } from 'rxjs/operators';
 
@@ -26,7 +25,7 @@ export class LalekouComponent implements OnInit {
   capacite = 10;
   numeroPage = 1;
   nombreTotal$: Observable<number>;
-  inputEvent: Observable<any>;
+  // inputEvent: Observable<any>;
   @ViewChild('input') input: ElementRef;
   constructor(
     private readonly service: RecuperationDataService,

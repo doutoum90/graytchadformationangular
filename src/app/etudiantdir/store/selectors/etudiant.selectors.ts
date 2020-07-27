@@ -19,8 +19,3 @@ export const selectFeatureEtudiant = createSelector(
     etudiantsSelecteurFeature,
     (state: EtudiantState) => state.etudiantSelectionne
 );
-
-export const selectEtudiantTotal = createSelector(
-    etudiantsSelecteurFeature,
-    selectAll
-);

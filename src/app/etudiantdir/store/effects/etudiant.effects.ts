@@ -11,14 +11,16 @@ import { Router } from '@angular/router';
 @Injectable()
 export class EtudiantEffects {
 
-  loadEtudiants$ = createEffect(() => this.actions$.pipe(
-    ofType(actions.loadEtudiants),
-    mergeMap((action) => this.etudiantService.getEtudiants(action.numeroPage, action.capacite)
-      .pipe(
-        map(etudiants => actions.loadEtudiantsSuccess({ etudiants: etudiants.body, total: etudiants.headers.get('x-total-count') })),
-        catchError(() => of(actions.loadEtudiantsFailure({ error: 'Erreur' })))
-      ))
-  )
+  loadEtudiants$ = createEffect(() => 
+    this.actions$.pipe(
+      ofType(actions.loadEtudiants),
+      mergeMap((action) => this.etudiantService.getEtudiants(action.numeroPage, action.capacite)
+        .pipe(
+          map(etudiants => actions.loadEtudiantsSuccess({ etudiants: etudiants.body, total: etudiants.headers.get('x-total-count') })),
+          catchError(() => of(actions.loadEtudiantsFailure({ error: 'Erreur' })))
+        )
+      )
+    )
   );
 
   loadEtudiant$ = createEffect(() => this.actions$.pipe(
