@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Etudiant } from '../models/etudiant.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 
@@ -12,8 +12,22 @@ export class RecuperationDataService {
 
   constructor(private http: HttpClient) { }
 
-  getEtudiants(): Observable<Array<Etudiant>> {
-    return this.http.get<Array<Etudiant>>(`${environment.API}/etudiants`);
+  getEtudiants(numeroPage: number, capacite: number): Observable<any> {
+    //  http://localhost:3000/etudiants?_page=1&_limit=3
+    return this.http.get<any>(`${environment.API}/etudiants?_page=${numeroPage}&_limit=${capacite}`,
+      {
+        responseType: 'json',
+        observe: 'response'
+      });
+  }
+
+  getEtudiantbyName(name: string, numeroPage: number, capacite: number): Observable<any> {
+    console.log(name);
+    return this.http.get<any>(`${environment.API}/etudiants?nom_like${name}_page=${numeroPage}&_limit=${capacite}`,
+      {
+        responseType: 'json',
+        observe: 'response'
+      });
   }
 
   getEtudiant(id: number): Observable<Etudiant> {

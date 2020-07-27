@@ -3,10 +3,9 @@
         <button class="btn btn-primary" routerLink="ajouter"> Ajouter un étudiant</button>
     </div>
 </div>
-
 <div class="row">
     <div class="col-3 mb-5">
-        <input class="form-control" [(ngModel)]="motCle">
+        <input #input class="form-control">
     </div>
 </div>
 <div class="row">
@@ -24,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let etudiant of (etudiants$ | async | filtre : motCle)"
+                <tr *ngFor="let etudiant of (etudiants$ | async)"
                     (dbclick)="afficher('modifier', etudiant.id)">
                     <td>{{etudiant.nom}}</td>
                     <td>{{etudiant.prenom ? (etudiant.prenom.prenom1): null}} {{etudiant?.prenom?.prenom2}}</td>
@@ -43,5 +42,16 @@
                 </tr>
             </tbody>
         </table>
+
+        <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+            <ul *ngIf="(nombreTotal$ |async) as nb" class="pagination">
+                <li class="page-item" [class.disabled]="numeroPage ===1"><button class="page-link"
+                        (click)="precedent()">Précedant</button></li>
+                <li class="page-item" *ngFor="let i of range(nb/capacite)" [class.active]="numeroPage===i">
+                    <button class="page-link" (click)="allerA(i)">{{i}}</button></li>
+                <li class="page-item" [class.disabled]="numeroPage===(nb/capacite)"><button class="page-link"
+                        (click)="suivant(nb)">Suivant</button></li>
+            </ul>
+        </nav>
     </div>
 </div>

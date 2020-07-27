@@ -7,11 +7,13 @@ export const etudiantFeatureKey = 'etudiant';
 export interface EtudiantState extends EntityState<Etudiant> {
   etudiantSelectionne: Etudiant;
   error: any;
+  nombreTotal: number
 }
 export const adapterEtudiant: EntityAdapter<Etudiant> = createEntityAdapter<Etudiant>();
 export const initialState: EtudiantState = adapterEtudiant.getInitialState({
   etudiantSelectionne: undefined,
-  error: undefined
+  error: undefined,
+  nombreTotal: 0
 });
 
 
@@ -19,7 +21,7 @@ export const reducer = createReducer(
   initialState,
   // charger tous étudiants
   on(actions.loadEtudiantsSuccess,
-    (state: EtudiantState, action: any) => adapterEtudiant.addAll(action.etudiants, state)),
+    (state: EtudiantState, action: any) => <any>{ ...adapterEtudiant.addMany(action.etudiants, state), nombreTotal: action.total }),
   on(actions.loadEtudiantsFailure,
     (state: EtudiantState, action: any) => <any>{ ...state, error: action.error }),
   // charger un étudiant

@@ -13,9 +13,9 @@ export class EtudiantEffects {
 
   loadEtudiants$ = createEffect(() => this.actions$.pipe(
     ofType(actions.loadEtudiants),
-    mergeMap(() => this.etudiantService.getEtudiants()
+    mergeMap((action) => this.etudiantService.getEtudiants(action.numeroPage, action.capacite)
       .pipe(
-        map(etudiants => actions.loadEtudiantsSuccess({ etudiants })),
+        map(etudiants => actions.loadEtudiantsSuccess({ etudiants: etudiants.body, total: etudiants.headers.get('x-total-count') })),
         catchError(() => of(actions.loadEtudiantsFailure({ error: 'Erreur' })))
       ))
   )

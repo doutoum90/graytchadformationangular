@@ -3,12 +3,13 @@ import { Update } from '@ngrx/entity';
 import { Etudiant } from 'src/app/models/etudiant.model';
 // charger tout les etudiants
 export const loadEtudiants = createAction(
-  '[Etudiants] Load Etudiants'
+  '[Etudiants] Load Etudiants',
+  props<{ numeroPage: number, capacite: number }>()
 );
 
 export const loadEtudiantsSuccess = createAction(
   '[Etudiants] Load Etudiants Success',
-  props<{ etudiants: Array<Etudiant> }>()
+  props<{ etudiants: Array<Etudiant>, total: string }>()
 );
 
 export const loadEtudiantsFailure = createAction(
