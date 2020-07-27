@@ -63,3 +63,5 @@
 ## [Leçon 30: CRUD : Etudiants](docs/lecon30.md)
 
 ## [Leçon 31: CRUD : Users](docs/lecon31.md)
+
+## [Leçon 32: Pagination et recherche](docs/lecon32.md)
