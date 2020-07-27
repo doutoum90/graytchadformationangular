@@ -1,16 +1,40 @@
-<div *ngIf=" (etudiant$ |async) as et" class="card" style="width: 18rem;">
-    <!--  <img class="card-img-top" src="..." alt="Card image cap"> -->
-    <div class="card-body">
-        <h5 class="card-title">{{et.nom}}</h5>
-        <p class="card-text">
-            PRENOM: {{et.prenom.prenom1}} {{et.prenom.prenom2}}<br>
-            AGE: {{et.age}}<br>
-            DATE DE NAISSANCE: {{et.dateNaissance}}<br>
-            FRAIS DE SUBSISTANCE: {{et.fraisSubsistance}}<br>
-            NOTE: {{et.note}}<br>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <div *ngIf="(etudiant$ |async) as et" class="card text-center">
+            <!--  <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
 
-        </p>
-        <a class="btn btn-info btn-lg mr-3" routerLink="/list">Retour</a>
-        <a class="btn btn-primary btn-lg" [routerLink]="['/list/modifier', et.id]">Modifier</a>
+                <h5 class="card-title">{{et.nom}}</h5>
+                <p class="card-text">
+                    PRENOM: {{et.prenom.prenom1}} {{et.prenom.prenom2}}<br>
+                    AGE: {{et.age}}<br>
+                    DATE DE NAISSANCE: {{et.dateNaissance}}<br>
+                    FRAIS DE SUBSISTANCE: {{et.fraisSubsistance}}<br>
+                    NOTE: {{et.note}}<br>
+
+                </p>
+                <a class="card-link mr-3" routerLink="/list">Retour</a>
+                <a class="btn btn-primary btn-lg" [routerLink]="['/list/modifier', et.id]">Modifier</a>
+            </div>
+
+            <div class="card-footer text-muted">
+                Pieds de page
+            </div>
+        </div>
     </div>
+    <div class="col-3"></div>
 </div>
