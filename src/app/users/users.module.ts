@@ -6,6 +6,8 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { ChangerMDPComponent } from './changer-mdp/changer-mdp.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { UsersRoutingModule } from './users-routing.module';
+import { StoreModule } from '@ngrx/store';
+import * as fromUsers from './store/reducer/users.reducer';
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { UsersRoutingModule } from './users-routing.module';
     FormsModule,
     ReactiveFormsModule,
     UsersRoutingModule,
+    StoreModule.forFeature(fromUsers.usersFeatureKey, fromUsers.reducer),
 /*     FontAwesomeModule,
     HttpClientModule, */
   ],
