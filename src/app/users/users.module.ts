@@ -7,7 +7,7 @@ import { ChangerMDPComponent } from './changer-mdp/changer-mdp.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { StoreModule } from '@ngrx/store';
-import * as fromUsers from './store/reducer/users.reducer';
+import * as fromUsers from './store/reducers/users.reducer';
 
 
 @NgModule({
