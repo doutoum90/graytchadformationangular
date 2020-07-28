@@ -5,6 +5,9 @@ import { AuthentificationService } from 'src/app/services/authentification.servi
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { Md5 } from 'ts-md5/dist/md5';
+import { Store } from '@ngrx/store';
+import { UserState, UsersFeature } from '../store/reducers/users.reducer';
+import { createUser } from '../store/actions/users.actions';
 
 @Component({
   selector: 'gray-inscription',
@@ -15,9 +18,7 @@ export class InscriptionComponent implements OnInit {
   inscriptionFormulaire: FormGroup;
 
 
-  constructor(
-    private readonly authService: AuthentificationService,
-    private readonly router: Router) { }
+  constructor(private readonly store: Store<UsersFeature>) { }
 
   ngOnInit(): void {
     this.inscriptionFormulaire = new FormGroup({
@@ -31,14 +32,7 @@ export class InscriptionComponent implements OnInit {
   inscription() {
     if (this.inscriptionFormulaire.valid) {
       const user: User = { username: this.username.value, password: Md5.hashStr(this.password.value) };
-      this.authService.inscription(user).subscribe(
-        v => {
-          this.router.navigate(['users/connexion']);
-        },
-        err => {
-          console.error('erreur d\'inscription', err);
-        });
-
+      this.store.dispatch(createUser({ user }));
     }
   }
   estValide(name: string): boolean {
