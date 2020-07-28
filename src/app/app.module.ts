@@ -10,8 +10,8 @@ import { AboutModule } from './aboutdir/about.module';
 import { ContactModule } from './contactdir/contact.module';
 import { EtudiantModule } from './etudiantdir/etudiant.module';
 import { HomeModule } from './homedir/home.module';
-import { ConnexionComponent } from './core/connexion/connexion.component';
-import { InscriptionComponent } from './core/inscription/inscription.component';
+import { ConnexionComponent } from './users/connexion/connexion.component';
+import { InscriptionComponent } from './users/inscription/inscription.component';
 import { ModalSuppressionComponent } from './core/modal-suppression/modal-suppression.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -20,7 +20,7 @@ import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { ChangerMDPComponent } from './core/changer-mdp/changer-mdp.component';
+import { ChangerMDPComponent } from './users/changer-mdp/changer-mdp.component';
 
 @NgModule({
   declarations: [
