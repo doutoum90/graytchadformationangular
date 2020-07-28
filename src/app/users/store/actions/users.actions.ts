@@ -13,5 +13,20 @@ export const createUserSuccess = createAction(
 
 export const createUserFailure = createAction(
   '[Users]  create User Failure',
-  props<{ error: any }>()
+  props<{ erreur: any }>()
+);
+
+export const authenticateUser = createAction(
+  '[Users]  authenticate User',
+  props<{ username: string, password: string | Int32Array }>()
+);
+
+export const authenticateUserSuccess = createAction(
+  '[Users]  authenticate User Success',
+  props<{ users: User[] }>()
+);
+
+export const authenticateUserFailure = createAction(
+  '[Users]  authenticate User Failure',
+  props<{ erreur: any }>()
 );

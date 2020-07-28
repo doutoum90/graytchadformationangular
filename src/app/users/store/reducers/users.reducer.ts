@@ -10,23 +10,33 @@ export interface UsersFeature {
 
 export interface UserState {
   user: User;
-  error: any;
+  users: User[];
+  erreur: any;
 }
 
 export const initialState: UserState = {
   user: undefined,
-  error: undefined
+  users: undefined,
+  erreur: undefined
 };
 
 
 export const reducer = createReducer(
   initialState,
   on(fromActions.createUserSuccess, (state: UserState, action: { user: User }) => <UserState>{
-    ...state, users: action.user
+    ...state, user: action.user
   }),
 
-  on(fromActions.createUserFailure, (state: UserState, action: { error: any }) => <UserState>{
-    ...state, error: action.error
+  on(fromActions.createUserFailure, (state: UserState, action: { erreur: any }) => <UserState>{
+    ...state, erreur: action.erreur
+  }),
+
+  on(fromActions.authenticateUserSuccess, (state: UserState, action: { users: User[] }) => <UserState>{
+    ...state, users: action.users
+  }),
+
+  on(fromActions.authenticateUserFailure, (state: UserState, action: { erreur: any }) => <UserState>{
+    ...state, erreur: action.erreur
   }),
 
 

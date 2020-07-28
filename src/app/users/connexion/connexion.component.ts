@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthentificationService } from 'src/app/services/authentification.service';
-import { Router } from '@angular/router'; import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Md5 } from 'ts-md5/dist/md5';
+import { authenticateUser } from '../store/actions/users.actions';
+import { Store, select } from '@ngrx/store';
+import { UsersFeature } from '../store/reducers/users.reducer';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -12,11 +15,11 @@ import { Md5 } from 'ts-md5/dist/md5';
 export class ConnexionComponent implements OnInit {
   connexionFormulaire: FormGroup;
   erreurConnexion = false;
-  constructor(
-    private readonly auth: AuthentificationService,
-    private readonly router: Router) { }
+  err$: Observable<any>;
+  constructor(private readonly store: Store<UsersFeature>) { }
 
   ngOnInit(): void {
+    this.err$ = this.store.pipe(select(v => v.users.erreur))
     this.connexionFormulaire = new FormGroup({
       username: new FormControl('', [Validators.required, Validators.pattern("^[A-Za-z]+$"), Validators.maxLength(10), Validators.minLength(3)]),
       password: new FormControl('',
@@ -27,20 +30,7 @@ export class ConnexionComponent implements OnInit {
 
   connexion() {
     if (this.connexionFormulaire.valid) {
-     
-      this.auth.connexion(this.username.value, Md5.hashStr(this.password.value)).subscribe(
-        users => {
-          if (users.length == 0) {
-            this.erreurConnexion = true;
-            // mot de passe ou username incorrect
-          } else {
-            this.auth.connect(users[0]);
-            this.router.navigate(['list']);
-          }
-        },
-        err => {
-          console.error('erreur d\'api', err);
-        });
+      this.store.dispatch(authenticateUser({ username: this.username.value, password: Md5.hashStr(this.password.value) }));
     }
 
   }

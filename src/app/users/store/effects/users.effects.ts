@@ -18,12 +18,36 @@ export class UsersEffects {
       concatMap((action) => this.userService.inscription(action.user)
         .pipe(
           map((user: User) => fromActions.createUserSuccess({ user })),
-          catchError(() => of(fromActions.createUserFailure({ error: 'Erreur' })))
+          catchError(() => of(fromActions.createUserFailure({ erreur: 'Erreur' })))
         )
       ),
       tap(() => this.router.navigate(['/users/connexion']))
     )
   );
+  authenticateUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromActions.authenticateUser),
+      concatMap((action) => this.userService.connexion(action.username, action.password)
+        .pipe(
+          map((users: User[]) => {
+            if (users.length == 0) {
+              return fromActions.authenticateUserFailure({ erreur: 'erreurConnexion' });
+            } else {
+              return fromActions.authenticateUserSuccess({ users });
+            }
+          }),
+          catchError(() => of(fromActions.authenticateUserFailure({ erreur: 'Erreur' })))
+        )
+      ),
+      tap((action: any) => {
+        if (action.erreur !== 'erreurConnexion') {
+          this.userService.connect(action.users[0]);
+          this.router.navigate(['list']);
+        }
+      })
+    )
+  );
+
 
   constructor(
     private readonly actions$: Actions,

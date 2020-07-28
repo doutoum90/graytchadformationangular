@@ -1,9 +1,9 @@
 <div id="container">
     <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-
-            <div *ngIf="erreurConnexion" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div *ngIf="(err$ |async)=== 'erreurConnexion'" class="alert alert-danger alert-dismissible fade show"
+                role="alert">
                 <strong>Username ou mot de passe incorrect</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -59,6 +59,6 @@
                 <a routerLink="/users/changerMDP">Changer Mot de passe</a>
             </form>
         </div>
-        <div class="col-4"></div>
+        <div class="col-3"></div>
     </div>
 </div>
