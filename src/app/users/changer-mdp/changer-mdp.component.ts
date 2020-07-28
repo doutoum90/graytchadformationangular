@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthentificationService } from 'src/app/services/authentification.service';
 import { Router } from '@angular/router';
 import { verification } from 'src/app/validators/verificationMPasse.validator';
-import { User } from 'src/app/models/user.model';
 import { Md5 } from 'ts-md5/dist/md5';
 
 @Component({
@@ -38,7 +37,7 @@ export class ChangerMDPComponent implements OnInit {
             // mot de passe ou username incorrect
           } else {
             this.authService.modifierMdp(users[0].id, { username: this.username.value, password: Md5.hashStr(this.password.value) }).subscribe(v => {
-              this.router.navigate(['connexion']);
+              this.router.navigate(['users/connexion']);
             });
             this.router.navigate(['list']);
           }

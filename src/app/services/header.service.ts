@@ -14,8 +14,8 @@ export class HeaderService {
       { nom: 'Contact', url: 'contact' }
     ],
     menuDroite: [
-      { nom: 'Connexion', url: 'connexion' },
-      { nom: 'Inscription', url: 'inscription' }]
+      { nom: 'Connexion', url: 'users/connexion' },
+      { nom: 'Inscription', url: 'users/inscription' }]
   };
 
   constructor() { }

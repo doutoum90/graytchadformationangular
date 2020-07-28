@@ -10,8 +10,6 @@ import { AboutModule } from './aboutdir/about.module';
 import { ContactModule } from './contactdir/contact.module';
 import { EtudiantModule } from './etudiantdir/etudiant.module';
 import { HomeModule } from './homedir/home.module';
-import { ConnexionComponent } from './users/connexion/connexion.component';
-import { InscriptionComponent } from './users/inscription/inscription.component';
 import { ModalSuppressionComponent } from './core/modal-suppression/modal-suppression.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -20,7 +18,7 @@ import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { ChangerMDPComponent } from './users/changer-mdp/changer-mdp.component';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -28,10 +26,7 @@ import { ChangerMDPComponent } from './users/changer-mdp/changer-mdp.component';
     NotFoundComponent,
     HeaderComponent,
     FooterComponent,
-    ConnexionComponent,
-    InscriptionComponent,
     ModalSuppressionComponent,
-    ChangerMDPComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +37,10 @@ import { ChangerMDPComponent } from './users/changer-mdp/changer-mdp.component';
     ContactModule,
     EtudiantModule,
     HomeModule,
+    UsersModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot(reducers, {
-      metaReducers, 
+      metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true,

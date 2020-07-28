@@ -17,7 +17,7 @@ export class AuthentificationGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {  
     if (localStorage.getItem('connecter') !== 'true')
-      this.router.navigate(['connexion']);
+      this.router.navigate(['users/connexion']);
     return localStorage.getItem('connecter') === 'true';
   }
 

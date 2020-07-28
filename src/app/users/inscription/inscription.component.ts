@@ -33,7 +33,7 @@ export class InscriptionComponent implements OnInit {
       const user: User = { username: this.username.value, password: Md5.hashStr(this.password.value) };
       this.authService.inscription(user).subscribe(
         v => {
-          this.router.navigate(['connexion']);
+          this.router.navigate(['users/connexion']);
         },
         err => {
           console.error('erreur d\'inscription', err);

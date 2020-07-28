@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
 
   deconnecter() {
     this.auth.disconnect();
-    this.router.navigate(['connexion']);
+    this.router.navigate(['users/connexion']);
   }
 
 }
