@@ -67,3 +67,7 @@
 ## [Leçon 32: Pagination et recherche](docs/lecon32.md)
 
 ## [Leçon 33: Les interactions entre composant et template ](docs/lecon33.md)
+
+## [Leçon 34: Les interactions inter-composant: du pére au fils ](docs/lecon34.md)
+
+## [Leçon 35: Les interactions inter-composant: du fils au père et le bidirectionnelle](docs/lecon35.md)
