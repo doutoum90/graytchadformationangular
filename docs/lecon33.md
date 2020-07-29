@@ -4,7 +4,7 @@
 
 ### binding unidirectionnel
 
-****A- de classe vers template****
+***A- de classe vers template***
 1- interpolation {{}}
 
 ``` typescript
@@ -25,7 +25,7 @@ lienImage = 'https://www.crwflags.com/fotw/images/t/td.gif';
 <img [src]="lienImage">
 ```
 
-****B- de template vers classe****
+***B- de template vers classe***
 binding d'evenement  ()
 
 ``` typescript
