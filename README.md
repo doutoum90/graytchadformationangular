@@ -65,3 +65,5 @@
 ## [Leçon 31: CRUD : Users](docs/lecon31.md)
 
 ## [Leçon 32: Pagination et recherche](docs/lecon32.md)
+
+## [Leçon 33: Les interactions entre composant et template ](docs/lecon33.md)
