@@ -38,6 +38,11 @@ export const reducer = createReducer(
   on(fromActions.authenticateUserFailure, (state: UserState, action: { erreur: any }) => <UserState>{
     ...state, erreur: action.erreur
   }),
+  on(fromActions.changePasswordFailure, (state: UserState, action: { erreur: any }) => <UserState>{
+    ...state, erreur: action.erreur
+  }),
+
+
 
 
 );

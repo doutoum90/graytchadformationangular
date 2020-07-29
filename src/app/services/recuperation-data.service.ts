@@ -12,7 +12,7 @@ export class RecuperationDataService {
 
   constructor(private http: HttpClient) { }
 
-  getEtudiants(numeroPage: number, capacite: number): Observable<any> {
+  getEtudiants(numeroPage: number, capacite: number): Observable<{ body: Array<Etudiant>, headers: any }> {
     return this.http.get<any>(`${environment.API}/etudiants?_page=${numeroPage}&_limit=${capacite}`,
       {
         responseType: 'json',

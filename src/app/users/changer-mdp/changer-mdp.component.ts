@@ -4,6 +4,10 @@ import { AuthentificationService } from 'src/app/services/authentification.servi
 import { Router } from '@angular/router';
 import { verification } from 'src/app/validators/verificationMPasse.validator';
 import { Md5 } from 'ts-md5/dist/md5';
+import { Store, select } from '@ngrx/store';
+import { UsersFeature } from '../store/reducers/users.reducer';
+import { changePassword } from '../store/actions/users.actions';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'gray-changer-mdp',
@@ -13,13 +17,12 @@ import { Md5 } from 'ts-md5/dist/md5';
 export class ChangerMDPComponent implements OnInit {
   changementFormulaire: FormGroup;
   erreurChangement: boolean;
+  err$: Observable<any>;
 
-
-  constructor(
-    private readonly authService: AuthentificationService,
-    private readonly router: Router) { }
+  constructor(private readonly store: Store<UsersFeature>) { }
 
   ngOnInit(): void {
+    this.err$ = this.store.pipe(select(v => v.users.erreur));
     this.changementFormulaire = new FormGroup({
       username: new FormControl('', [Validators.required, Validators.pattern("^[A-Za-z]+$"), Validators.maxLength(10), Validators.minLength(3)]),
       password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,40}$')]),
@@ -30,21 +33,11 @@ export class ChangerMDPComponent implements OnInit {
 
   changer() {
     if (this.changementFormulaire.valid) {
-      this.authService.getUserByUsername(this.username.value).subscribe(
-        users => {
-          if (users.length == 0) {
-            this.erreurChangement = true;
-            // mot de passe ou username incorrect
-          } else {
-            this.authService.modifierMdp(users[0].id, { username: this.username.value, password: Md5.hashStr(this.password.value) }).subscribe(v => {
-              this.router.navigate(['users/connexion']);
-            });
-            this.router.navigate(['list']);
-          }
-        },
-        err => {
-          console.error('erreur d\'api', err);
-        });
+      this.store.dispatch(
+        changePassword({
+          username: this.username.value,
+          password: Md5.hashStr(this.password.value)
+        }));
     }
   }
   estValide(name: string): boolean {

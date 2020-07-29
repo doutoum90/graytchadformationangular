@@ -1,9 +1,10 @@
 <div id="container">
     <div class="row">
-
-
         <div class="col-4"></div>
         <div class="col-4">
+            <pre>
+                {{err$ | async| json}}
+            </pre>
             <h5>Changement de mot de passe</h5>
             <form (ngSubmit)="changer()" [formGroup]="changementFormulaire">
 

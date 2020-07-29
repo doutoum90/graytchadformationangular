@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as fromActions from '../actions/users.actions'
 import { AuthentificationService } from 'src/app/services/authentification.service';
-import { concatMap, map, catchError, tap } from 'rxjs/operators';
+import { concatMap, map, catchError, tap, mergeMap } from 'rxjs/operators';
 import { User } from 'src/app/models/user.model';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
+import { Md5 } from 'ts-md5/dist/md5';
 
 
 
@@ -48,6 +49,31 @@ export class UsersEffects {
     )
   );
 
+  changePassword$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromActions.changePassword),
+      concatMap((action) => this.userService.getUserByUsername(action.username)
+        .pipe(
+          mergeMap((users: User[]) => {
+            if (users.length == 0) {
+              return of(fromActions.changePasswordFailure({ erreur: 'erreurChangement' }));
+              // mot de passe ou username incorrect
+            } else {
+              return this.userService.modifierMdp(users[0].id, { username: action.username, password: action.password });
+            }
+          }),
+          catchError(() => of(fromActions.changePasswordFailure({ erreur: 'Erreur' })))
+        )
+      ),
+      tap((action: any) => {
+        if (action.erreur !== 'erreurConnexion') {
+          this.userService.disconnect();
+          this.router.navigate(['users/connexion']);
+        }
+      })
+    ),
+    { dispatch: false }
+  );
 
   constructor(
     private readonly actions$: Actions,

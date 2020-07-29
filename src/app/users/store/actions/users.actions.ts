@@ -30,3 +30,14 @@ export const authenticateUserFailure = createAction(
   '[Users]  authenticate User Failure',
   props<{ erreur: any }>()
 );
+
+
+export const changePassword = createAction(
+  '[Users]  change password User',
+  props<{ username: string, password: string | Int32Array }>()
+);
+
+export const changePasswordFailure = createAction(
+  '[Users]  change password User Failure',
+  props<{ erreur: any }>()
+);
