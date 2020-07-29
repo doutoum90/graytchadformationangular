@@ -1,4 +1,4 @@
-## Leçon 33 Angular
+# Leçon 33 Angular
 
 ## Les interactions entre composant et template	
 

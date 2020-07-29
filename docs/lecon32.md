@@ -1,4 +1,4 @@
-## Leçon 32 Angular
+# Leçon 32 Angular
 
 ## Pagination et recherche
 
