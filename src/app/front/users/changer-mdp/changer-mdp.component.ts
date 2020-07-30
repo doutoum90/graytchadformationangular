@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { verification } from 'src/app/front/validators/verificationMPasse.validator';
+import { verification } from 'src/app/validators/verificationMPasse.validator';
 import { Md5 } from 'ts-md5/dist/md5';
 import { Store, select } from '@ngrx/store';
 import { UsersFeature } from '../store/reducers/users.reducer';

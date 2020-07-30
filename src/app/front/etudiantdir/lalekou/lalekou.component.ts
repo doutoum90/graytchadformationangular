@@ -5,7 +5,7 @@ import { faSearch, faTrash, faEdit, IconDefinition } from '@fortawesome/free-sol
 
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalSuppressionComponent } from 'src/app/front/core/modal-suppression/modal-suppression.component';
+import { ModalSuppressionComponent } from 'src/app/core/modal-suppression/modal-suppression.component';
 import { Store, select } from '@ngrx/store'
 import { selectFeatureEtudiants, EtudiantsFeature } from '../store/selectors/etudiant.selectors';
 import { loadEtudiants, deleteEtudiant } from '../store/actions/etudiants.actions';

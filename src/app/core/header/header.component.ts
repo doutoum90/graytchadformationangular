@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderService, IHeader } from '../../../services/header.service';
+import { HeaderService, IHeader } from '../../services/header.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthentificationService } from 'src/app/services/authentification.service';

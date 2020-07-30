@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { verification } from '../../validators/verificationMPasse.validator';
-import { User } from 'src/app/front/models/user.model';
+import { verification } from '../../../validators/verificationMPasse.validator';
+import { User } from 'src/app/models/user.model';
 import { Md5 } from 'ts-md5/dist/md5';
 import { Store } from '@ngrx/store';
-import { UserState, UsersFeature } from '../store/reducers/users.reducer';
+import { UsersFeature } from '../store/reducers/users.reducer';
 import { createUser } from '../store/actions/users.actions';
 
 @Component({

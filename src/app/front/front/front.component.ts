@@ -5,7 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './front.component.html',
   styleUrls: ['./front.component.scss']
 })
-export class FrontComponent {
-  title = 'Gray Tchad Formation Angular Modifié';
-
-}
+export class FrontComponent { }

@@ -1,6 +1,6 @@
 import { createAction, props, } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
-import { Etudiant } from 'src/app/front/models/etudiant.model';
+import { Etudiant } from 'src/app/models/etudiant.model';
 // charger tout les etudiants
 export const loadEtudiants = createAction(
   '[Etudiants] Load Etudiants',

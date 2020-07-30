@@ -1,5 +1,5 @@
-import { Action, createReducer, on } from '@ngrx/store';
-import { Etudiant } from 'src/app/front/models/etudiant.model';
+import { createReducer, on } from '@ngrx/store';
+import { Etudiant } from 'src/app/models/etudiant.model';
 import * as actions from '../actions/etudiants.actions';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 

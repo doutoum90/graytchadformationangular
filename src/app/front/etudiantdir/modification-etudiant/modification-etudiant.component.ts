@@ -6,7 +6,7 @@ import { selectFeatureEtudiant, EtudiantsFeature } from '../store/selectors/etud
 import { loadEtudiant, updateEtudiant } from '../store/actions/etudiants.actions';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { tap } from 'rxjs/operators';
-import { Etudiant } from 'src/app/front/models/etudiant.model';
+import { Etudiant } from 'src/app/models/etudiant.model';
 import { Update } from '@ngrx/entity';
 
 @Component({

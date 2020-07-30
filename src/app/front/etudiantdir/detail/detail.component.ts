@@ -4,7 +4,7 @@ import { EtudiantsFeature, selectFeatureEtudiant } from '../store/selectors/etud
 import { loadEtudiant } from '../store/actions/etudiants.actions';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Etudiant } from 'src/app/front/models/etudiant.model';
+import { Etudiant } from 'src/app/models/etudiant.model';
 
 @Component({
   selector: 'gray-detail',

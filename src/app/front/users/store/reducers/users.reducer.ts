@@ -1,6 +1,6 @@
-import { Action, createReducer, on, State } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 
-import { User } from '../../../models/user.model';
+import { User } from '../../../../models/user.model';
 import * as fromActions from '../actions/users.actions';
 
 export const usersFeatureKey = 'users';

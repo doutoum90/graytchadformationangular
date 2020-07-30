@@ -5,7 +5,7 @@ import { AuthentificationService } from 'src/app/services/authentification.servi
 import { concatMap, map, catchError, tap, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
-import { User } from 'src/app/front/models/user.model';
+import { User } from 'src/app/models/user.model';
 
 
 
