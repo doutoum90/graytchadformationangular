@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Etudiant } from '../models/etudiant.model';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
+import { Etudiant } from '../front/models/etudiant.model';
 
 @Injectable({
   providedIn: 'root'

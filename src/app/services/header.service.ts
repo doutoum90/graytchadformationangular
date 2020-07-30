@@ -10,7 +10,7 @@ export class HeaderService {
     menuGauche: [
       { nom: 'Home', url: 'home' },
       { nom: 'About', url: 'about' },
-      { nom: 'Liste des étudiants', url: 'list' },
+     /*  { nom: 'Liste des étudiants', url: 'list' }, */
       { nom: 'Contact', url: 'contact' }
     ],
     menuDroite: [
