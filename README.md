@@ -71,3 +71,5 @@
 ## [Leçon 34: Les interactions inter-composant: du pére au fils ](docs/lecon34.md)
 
 ## [Leçon 35: Les interactions inter-composant: du fils au père et le bidirectionnelle](docs/lecon35.md)
+
+## [Leçon 36: Cycle de vie de composant : lifeCycle hook](docs/lecon35.md)
