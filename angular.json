@@ -5,6 +5,12 @@
   "projects": {
     "graytchadformationangular": {
       "projectType": "application",
+      "i18n": {
+        "locales": {
+          "fr": "src/locale/messages.fr.xlf",
+          "ar": "src/locale/messages.ar.xlf"
+        }
+      },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -65,6 +71,12 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "fr": {
+             "localize": ["fr"]
+            },
+            "ar": {
+              "localize": ["ar"]
             }
           }
         },
@@ -76,6 +88,12 @@
           "configurations": {
             "production": {
               "browserTarget": "graytchadformationangular:build:production"
+            },
+            "fr":{
+              "browserTarget": "graytchadformationangular:build:fr"
+            },
+            "ar":{
+              "browserTarget": "graytchadformationangular:build:ar"
             }
           }
         },

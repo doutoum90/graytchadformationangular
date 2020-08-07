@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start:fr": "ng serve --configuration=fr --port=4201",
+    "start:ar": "ng serve --configuration=ar --port=4202",
+    "build:fr": "ng build --configuration=fr",
+    "build:ar": "ng build --configuration=ar"
   },
   "private": true,
   "dependencies": {

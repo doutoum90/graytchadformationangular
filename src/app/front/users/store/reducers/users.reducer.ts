@@ -1,4 +1,4 @@
-import { createReducer, on } from '@ngrx/store';
+import { createReducer, on, Action } from '@ngrx/store';
 
 import { User } from '../../../../models/user.model';
 import * as fromActions from '../actions/users.actions';
@@ -21,7 +21,7 @@ export const initialState: UserState = {
 };
 
 
-export const reducer = createReducer(
+export const MyReducer = createReducer(
   initialState,
   on(fromActions.createUserSuccess, (state: UserState, action: { user: User }) => <UserState>{
     ...state, user: action.user
@@ -41,9 +41,8 @@ export const reducer = createReducer(
   on(fromActions.changePasswordFailure, (state: UserState, action: { erreur: any }) => <UserState>{
     ...state, erreur: action.erreur
   }),
-
-
-
-
 );
 
+export function reducer(state: UserState | undefined, action: Action) {
+  return MyReducer(state, action);
+}

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12 mb-5">
-        <button class="btn btn-primary" routerLink="ajouter"> Ajouter un étudiant</button>
+        <button class="btn btn-primary" routerLink="ajouter" i18n="bouton ajouter etudiant|bouton ajouter etudiant@@bouton ajouter etudiant"> Ajouter un étudiant</button>
     </div>
 </div>
 <div class="row">
@@ -13,13 +13,13 @@
         <table class="table">
             <thead>
                 <tr>
-                    <td>Nom</td>
-                    <td>Prenom</td>
-                    <td>Age</td>
-                    <td>Date de Naissance</td>
-                    <td>Frais subsistance</td>
-                    <td>Moyenne</td>
-                    <td>Actions</td>
+                    <td i18n="label nom|label nom@@label nom">Nom</td>
+                    <td i18n="label prenom|label prenom@@label prenom">Prenom</td>
+                    <td i18n="label age|label age@@label age">Age</td>
+                    <td i18n="label date de naissance|label date de naissance@@label date de naissance">Date de Naissance</td>
+                    <td i18n="label frais subsistance|label frais subsistance@@label frais subsistance">Frais subsistance</td>
+                    <td i18n="label moyenne|label moyenne@@label moyenne">Moyenne</td>
+                    <td i18n="label actions|label actions@@label actions">Actions</td>
                 </tr>
             </thead>
             <tbody>
@@ -36,11 +36,11 @@
         <nav aria-label="Page navigation example" class="d-flex justify-content-center">
             <ul *ngIf="(nombreTotal$ |async) as nb" class="pagination">
                 <li class="page-item" [class.disabled]="numeroPage ===1"><button class="page-link"
-                        (click)="precedent()">Précedant</button></li>
+                        (click)="precedent()" i18n="button precedent|button precedent@@button precedent">Précedant</button></li>
                 <li class="page-item" *ngFor="let i of range(nb/capacite)" [class.active]="numeroPage===i">
                     <button class="page-link" (click)="allerA(i)">{{i}}</button></li>
                 <li class="page-item" [class.disabled]="numeroPage===(nb/capacite)"><button class="page-link"
-                        (click)="suivant(nb)">Suivant</button></li>
+                        (click)="suivant(nb)" i18n="button suivant|button suivant@@button suivant">Suivant</button></li>
             </ul>
         </nav>
     </div>
@@ -68,7 +68,7 @@
 
 
 <ng-template #elseBlocEtudiant>
-    <p class="text-center">
+    <p class="text-center" i18n="paragraphe aucun element|paragraphe aucun element@@paragraphe aucun element">
         Aucun étudiant trouvé
     </p>
 </ng-template>

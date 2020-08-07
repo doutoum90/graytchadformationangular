@@ -1,4 +1,4 @@
-import { createReducer, on } from '@ngrx/store';
+import { createReducer, on, Action } from '@ngrx/store';
 import { Etudiant } from 'src/app/models/etudiant.model';
 import * as actions from '../actions/etudiants.actions';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
@@ -17,7 +17,7 @@ export const initialState: EtudiantState = adapterEtudiant.getInitialState({
 });
 
 
-export const reducer = createReducer(
+export const MyReducer = createReducer(
   initialState,
   // charger tous étudiants
   on(actions.loadEtudiantsSuccess,
@@ -49,6 +49,9 @@ export const reducer = createReducer(
   on(actions.createEtudiantSuccess,
     (state: EtudiantState, action: any) => <any>{ ...state, error: action.error })
 );
+export function reducer(state: EtudiantState | undefined, action: Action) {
+  return MyReducer(state, action);
+}
 
 export const {
   selectIds,
