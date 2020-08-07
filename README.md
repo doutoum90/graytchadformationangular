@@ -72,4 +72,6 @@
 
 ## [Leçon 35: Les interactions inter-composant: du fils au père et le bidirectionnelle](docs/lecon35.md)
 
-## [Leçon 36: Cycle de vie de composant : lifeCycle hook](docs/lecon35.md)
+## [Leçon 36: Cycle de vie de composant : lifeCycle hook](docs/lecon36.md)
+
+## [Leçon 37: Directives structurelles : ng-template, ng-container, ngTemplateOutlet, viewContainerRef](docs/lecon37.md)
