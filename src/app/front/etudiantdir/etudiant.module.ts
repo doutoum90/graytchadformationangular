@@ -19,6 +19,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { EtudiantEffects } from './store/effects/etudiant.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailComponent } from './detail/detail.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -41,8 +42,9 @@ import { DetailComponent } from './detail/detail.component';
     FontAwesomeModule,
     NgbModule,
     HttpClientModule,
+    TranslateModule,
     StoreModule.forFeature(fromEtudiant.etudiantFeatureKey, fromEtudiant.reducer),
-    EffectsModule.forFeature([EtudiantEffects])
+    EffectsModule.forFeature([EtudiantEffects]),
   ],
   exports: [
     ListStudentComponent,

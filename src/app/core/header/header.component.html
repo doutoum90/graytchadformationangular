@@ -1,25 +1,35 @@
 <header class="mb-5" *ngIf="(header | async) as headerData">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">{{headerData.titre}}</a>
+        <a class="navbar-brand" href="#">{{'NAVBAR.TITRE' | translate}}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li *ngFor="let element of headerData.menuGauche" class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" [routerLink]="element.url">{{element.nom}} </a>
+                <li *ngFor="let element of transform('NAVBAR.MENUGAUCHE' | translate| json)">
+                    <a class="nav-link" [routerLink]="element.URL">{{element.NOM}} </a>
                 </li>
             </ul>
-
+            <form class="form-inline my-2 my-lg-0">
+                <div class="form-group">
+                    <label class="text-light mr-2">{{ 'FRONT.SELECT' | translate }}</label>
+                    <select #langSelect (change)="translate.use(langSelect.value)" class="form-control">
+                        <option *ngFor="let lang of translate.getLangs()" [value]="lang"
+                            [selected]="lang === translate.currentLang">{{ lang }}</option>
+                    </select>
+                </div>
+            </form>
             <ul *ngIf="!estConnecte()" class="navbar-nav mt-2 mt-md-0">
-                <li *ngFor="let element of headerData.menuDroite" class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" [routerLink]="element.url">{{element.nom}}</a>
+                <li *ngFor="let element of transform('NAVBAR.MENUDROITE' | translate| json)" class="nav-item"
+                    routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="element.URL">{{element.NOM}}</a>
                 </li>
             </ul>
             <ul *ngIf="estConnecte()" class="navbar-nav mt-2 mt-md-0">
-                <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" (click)="deconnecter()">Déconnection</a>
+                <li *ngIf="transform('NAVBAR.DECONNEXION' | translate| json) as element" class="nav-item"
+                    routerLinkActive="active">
+                    <a class="nav-link" (click)="deconnecter()">{{element.NOM}}</a>
                 </li>
             </ul>
         </div>

@@ -28,6 +28,8 @@
     "@ngrx/entity": "^9.0.0",
     "@ngrx/store": "^9.2.0",
     "@ngrx/store-devtools": "^9.2.0",
+    "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.3",
     "jquery": "^3.5.1",

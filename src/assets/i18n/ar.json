@@ -1,0 +1,56 @@
+{
+    "LISTE ETUDIANTS": {
+        "TITRE": "قائمة الطلاب"
+    },
+    "FRONT": {
+        "SELECT": "اختر لغتك"
+    },
+    "NAVBAR": {
+        "TITRE": "Angular على إقرأ التشادي",
+        "MENUGAUCHE": [
+            {
+                "NOM": "الصفحة الرئيسية",
+                "URL": "home"
+            },
+            {
+                "NOM": "حول",
+                "URL": "about"
+            },
+            {
+                "NOM": "اتصل",
+                "URL": "contact"
+            }
+        ],
+        "MENUDROITE": [
+            {
+                "NOM": "تسجيل الدخول",
+                "URL": "users/connexion"
+            },
+            {
+                "NOM": "التسجيل",
+                "URL": "users/inscription"
+            }
+        ],
+        "DECONNEXION": {
+            "NOM": "قطع الاتصال",
+            "URL": "users/connexion"
+        }
+    },
+    "LALEKOU":{
+        "TITRE": "أضف طالبًا",
+        "TABLEAU":{
+            "NOM": "الكنية",
+            "PRENOM": "الاسم الاول",
+            "AGE": "عمر",
+            "DATE NAISSANCE" : "تاريخ الميلاد",
+            "FRAIS SUBSISTANCE": "نفقات المعيشة",
+            "MOYENNE": "معدل",
+            "ACTIONS": "أجراءات"
+        },
+        "PAGINATOR":{
+            "PRECEDANT": "السابق",
+            "SUIVANT": "التالية"
+        },
+        "INTROUVABLE": "لم يتم العثور على طالب"
+    }
+}

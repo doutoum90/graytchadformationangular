@@ -14,6 +14,7 @@ import { UsersModule } from './users/users.module';
 import { AdminModule } from '../admin/admin.module';
 import { FrontComponent } from './front/front.component';
 import { FrontRoutingModule } from './front-routing.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FrontRoutingModule } from './front-routing.module';
     HomeModule,
     UsersModule,
     AdminModule,
+    TranslateModule,
   ]
 })
 export class FrontModule { }

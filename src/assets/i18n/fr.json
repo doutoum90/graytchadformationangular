@@ -1,0 +1,56 @@
+{
+    "LISTE ETUDIANTS": {
+        "TITRE": "Liste des étudiants"
+    },
+    "FRONT": {
+        "SELECT": "Selectionner votre langue"
+    },
+    "NAVBAR": {
+        "TITRE": "Angular sur Gray TCHAD",
+        "MENUGAUCHE": [
+            {
+                "NOM": "Home",
+                "URL": "home"
+            },
+            {
+                "NOM": "About",
+                "URL": "about"
+            },
+            {
+                "NOM": "Contact",
+                "URL": "contact"
+            }
+        ],
+        "MENUDROITE": [
+            {
+                "NOM": "Connexion",
+                "URL": "users/connexion"
+            },
+            {
+                "NOM": "Inscription",
+                "URL": "users/inscription"
+            }
+        ],
+        "DECONNEXION": {
+            "NOM": "Deconnxion",
+            "URL": "users/connexion"
+        }
+    },
+    "LALEKOU":{
+        "TITRE": "Ajouter un étudiant",
+        "TABLEAU":{
+            "NOM": "Nom",
+            "PRENOM": "Prenom",
+            "AGE": "Age",
+            "DATE NAISSANCE" : "Date de Naissance",
+            "FRAIS SUBSISTANCE": "Frais subsistance",
+            "MOYENNE": "Moyenne",
+            "ACTIONS": "Actions"
+        },
+        "PAGINATOR":{
+            "PRECEDANT": "Précedant",
+            "SUIVANT": "Suivant"
+        },
+        "INTROUVABLE": "Aucun étudiant trouvé"
+    }
+}

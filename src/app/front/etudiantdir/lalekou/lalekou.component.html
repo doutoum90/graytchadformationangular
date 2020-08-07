@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12 mb-5">
-        <button class="btn btn-primary" routerLink="ajouter"> Ajouter un étudiant</button>
+        <button class="btn btn-primary" routerLink="ajouter">{{'LALEKOU.TITRE' | translate}}</button>
     </div>
 </div>
 <div class="row">
@@ -13,13 +13,13 @@
         <table class="table">
             <thead>
                 <tr>
-                    <td>Nom</td>
-                    <td>Prenom</td>
-                    <td>Age</td>
-                    <td>Date de Naissance</td>
-                    <td>Frais subsistance</td>
-                    <td>Moyenne</td>
-                    <td>Actions</td>
+                    <td>{{'LALEKOU.TABLEAU.NOM' | translate}}</td>
+                    <td>{{'LALEKOU.TABLEAU.PRENOM' | translate}}</td>
+                    <td>{{'LALEKOU.TABLEAU.AGE' | translate}}</td>
+                    <td>{{'LALEKOU.TABLEAU.DATE NAISSANCE' | translate}}</td>
+                    <td>{{'LALEKOU.TABLEAU.FRAIS SUBSISTANCE' | translate}}</td>
+                    <td>{{'LALEKOU.TABLEAU.MOYENNE' | translate}}</td>
+                    <td>{{'LALEKOU.TABLEAU.ACTIONS' | translate}}</td>
                 </tr>
             </thead>
             <tbody>
@@ -36,11 +36,11 @@
         <nav aria-label="Page navigation example" class="d-flex justify-content-center">
             <ul *ngIf="(nombreTotal$ |async) as nb" class="pagination">
                 <li class="page-item" [class.disabled]="numeroPage ===1"><button class="page-link"
-                        (click)="precedent()">Précedant</button></li>
+                        (click)="precedent()">{{'LALEKOU.PAGINATOR.PRECEDANT' | translate}}</button></li>
                 <li class="page-item" *ngFor="let i of range(nb/capacite)" [class.active]="numeroPage===i">
                     <button class="page-link" (click)="allerA(i)">{{i}}</button></li>
                 <li class="page-item" [class.disabled]="numeroPage===(nb/capacite)"><button class="page-link"
-                        (click)="suivant(nb)">Suivant</button></li>
+                        (click)="suivant(nb)">{{'LALEKOU.PAGINATOR.SUIVANT' | translate}}</button></li>
             </ul>
         </nav>
     </div>
@@ -69,7 +69,7 @@
 
 <ng-template #elseBlocEtudiant>
     <p class="text-center">
-        Aucun étudiant trouvé
+        {{'LALEKOU.INTROUVABLE' | translate}}
     </p>
 </ng-template>
 
