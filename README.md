@@ -77,3 +77,5 @@
 ## [Leçon 37: Directives structurelles : ng-template, ng-container, ngTemplateOutlet, viewContainerRef](docs/lecon37.md)
 
 ## [Leçon 38: internationalization(I18n)](docs/lecon38.md)
+
+## [Leçon 39: Site multilingue avec ngx-translate](docs/lecon39.md)
