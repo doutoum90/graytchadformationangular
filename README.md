@@ -75,3 +75,5 @@
 ## [Leçon 36: Cycle de vie de composant : lifeCycle hook](docs/lecon36.md)
 
 ## [Leçon 37: Directives structurelles : ng-template, ng-container, ngTemplateOutlet, viewContainerRef](docs/lecon37.md)
+
+## [Leçon 38: internationalization(I18n)](docs/lecon38.md)
