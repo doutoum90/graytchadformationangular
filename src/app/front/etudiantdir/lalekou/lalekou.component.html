@@ -23,23 +23,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let etudiant of (etudiants$ | async)"
-                    (dbclick)="afficher('modifier', etudiant.id)">
-                    <td>{{etudiant.nom}}</td>
-                    <td>{{etudiant.prenom ? (etudiant.prenom.prenom1): null}} {{etudiant?.prenom?.prenom2}}</td>
-                    <td>{{etudiant.age | agefr}}</td>
-                    <td>{{etudiant.dateNaissance | date : 'dd/MM/yyyy'}}</td>
-                    <td>{{etudiant.fraisSubsistance | currency : 'FCFA ' | inverser }}</td>
-                    <td>{{etudiant.note | percent}}</td>
 
-                    <td>
-                        <fa-icon (click)="supprimer(etudiant.id)" [ngStyle]="{'margin-right': '15px'}"
-                            [icon]="iconSuppr"></fa-icon>
-                        <fa-icon (click)="modifier(etudiant.id)" [ngStyle]="{'margin-right': '15px'}"
-                            [icon]="iconModifier"></fa-icon>
-                        <fa-icon (click)="detail(etudiant.id)" [icon]="iconZoom"></fa-icon>
-                    </td>
-                </tr>
+                <ng-container *ngIf="(etudiants$ |async) as et; else elseBlocEtudiant">
+                    <ng-container *ngTemplateOutlet="blocEtudiant, context: {etudiants: etudiants$}">
+
+                    </ng-container>
+                </ng-container>
+
             </tbody>
         </table>
 
@@ -55,3 +45,32 @@
         </nav>
     </div>
 </div>
+
+
+<ng-template #blocEtudiant let-etudiants="etudiants">
+    <tr *ngFor="let etudiant of etudiants| async">
+        <td> {{etudiant?.nom}}</td>
+        <td>{{etudiant.prenom ? (etudiant.prenom.prenom1): null}} {{etudiant?.prenom?.prenom2}}</td>
+        <td>{{etudiant.age | agefr}}</td>
+        <td>{{etudiant.dateNaissance | date : 'dd/MM/yyyy'}}</td>
+        <td>{{etudiant.fraisSubsistance | currency : 'FCFA ' | inverser }}</td>
+        <td>{{etudiant.note | percent}}</td>
+
+        <td>
+            <fa-icon (click)="supprimer(etudiant.id)" [ngStyle]="{'margin-right': '15px'}" [icon]="iconSuppr"></fa-icon>
+            <fa-icon (click)="modifier(etudiant.id)" [ngStyle]="{'margin-right': '15px'}" [icon]="iconModifier">
+            </fa-icon>
+            <fa-icon (click)="detail(etudiant.id)" [icon]="iconZoom"></fa-icon>
+        </td>
+    </tr>
+
+</ng-template>
+
+
+<ng-template #elseBlocEtudiant>
+    <p class="text-center">
+        Aucun étudiant trouvé
+    </p>
+</ng-template>
+
+

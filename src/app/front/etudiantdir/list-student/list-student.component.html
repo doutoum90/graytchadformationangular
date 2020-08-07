@@ -1,3 +1,18 @@
 <h1>Liste des étudiants</h1>
 
-<gray-lalekou></gray-lalekou>
+<gray-lalekou 
+[capacite]="capacite" 
+[numeroPage]="numeroPage" 
+[etudiants$]="etudiants$" 
+[nombreTotal$]="nombreTotal$"
+
+(afficheEvent)="afficher($event)"
+(supprimeEvent)="supprimer($event)"
+(detailEvent)="detail($event)"
+(modifieEvent)="modifier($event)"
+(propagerEvent)="propager($event)"
+>
+
+</gray-lalekou>
+
+<!-- <div #tableauEtudiant></div> -->
