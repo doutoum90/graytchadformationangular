@@ -25,8 +25,6 @@ import { UsersEffects } from './store/effects/users.effects';
     UsersRoutingModule,
     StoreModule.forFeature(fromUsers.usersFeatureKey, fromUsers.reducer),
     EffectsModule.forFeature([UsersEffects]),
-/*     FontAwesomeModule,
-    HttpClientModule, */
   ],
   exports: []
 })

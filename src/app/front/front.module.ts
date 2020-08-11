@@ -14,6 +14,7 @@ import { UsersModule } from './users/users.module';
 import { AdminModule } from '../admin/admin.module';
 import { FrontComponent } from './front/front.component';
 import { FrontRoutingModule } from './front-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FrontRoutingModule } from './front-routing.module';
   imports: [
     FrontRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     AboutModule,

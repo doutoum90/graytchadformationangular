@@ -6,9 +6,9 @@ import { ChangerMDPComponent } from './changer-mdp/changer-mdp.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [
-    { component: ConnexionComponent, path: 'connexion', pathMatch: 'full' },
-    { component: ChangerMDPComponent, path: 'changerMDP', pathMatch: 'full' },
-    { component: InscriptionComponent, path: 'inscription', pathMatch: 'full' },
+    { component: ConnexionComponent, path: 'connexion', pathMatch: 'full', data:{ animation: '1' } },
+    { component: ChangerMDPComponent, path: 'changerMDP', pathMatch: 'full', data:{ animation: '1' } },
+    { component: InscriptionComponent, path: 'inscription', pathMatch: 'full' , data:{ animation: '1' }},
 ];
 
 @NgModule({
