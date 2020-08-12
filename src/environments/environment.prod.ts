@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API: 'http://localhost:3000'
+  API: 'https://europe-west1-giraytchad-tchad.cloudfunctions.net/api'
 };

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API: 'https://europe-west1-giraytchad-tchad.cloudfunctions.net/api'
+  API: 'http://localhost:3000'
 };
 
 /*
