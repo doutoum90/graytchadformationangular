@@ -79,3 +79,5 @@
 ## [Leçon 38: internationalization(I18n)](docs/lecon38.md)
 
 ## [Leçon 39: Site multilingue avec ngx-translate](docs/lecon39.md)
+
+## [Leçon 40: Les animations](docs/lecon40.md)
