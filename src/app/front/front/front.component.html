@@ -1,7 +1,6 @@
 <gray-header></gray-header>
 <main role="main" [style.padding-top.px]="30" style="margin-bottom: 250px !important" [class.flex-shrink-0]="true">
-    <div [@routing]="prepareRoute(myOutlet)"
-        class="container">
+    <div [@routing]="prepareRoute(myOutlet)" class="container">
         <router-outlet #myOutlet="outlet"></router-outlet>
     </div>
 </main>

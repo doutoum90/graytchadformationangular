@@ -10,17 +10,8 @@ import { RouterOutlet } from '@angular/router';
     trigger('routing', [
       transition('* <=> *', [
         style({ position: 'relative' }),
-        query(':enter, :leave', [
-          style({
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%'
-          })
-        ]),
-        query(':enter', [
-          style({ left: '-100%' })
-        ]),
+        query(':enter, :leave', [style({ position: 'absolute', top: 0, left: 0, width: '100%' })]),
+        query(':enter',[style({ left: '-100%' })]),
         query(':leave', animateChild()),
         group([
           query(':leave', [
@@ -58,4 +49,4 @@ export class FrontComponent {
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
- }
+}
