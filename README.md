@@ -87,3 +87,5 @@
 ## [Leçon 42: API nestjs avec une base de données mongodb](docs/lecon42.md)
 
 ## [Leçon 43: Deployer l'api sur firebase](docs/lecon43.md)
+
+## [Leçon 44: Deployer l'application sur firebase](docs/lecon44.md)
