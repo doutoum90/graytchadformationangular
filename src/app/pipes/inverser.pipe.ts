@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class InverserPipe implements PipeTransform {
     transform(value: any, ...args: any[]) {
-        return value.split(' ').reverse().join(' ');
+        return value ? value.split(' ').reverse().join(' ') : value;
     }
 }
 

@@ -16,7 +16,7 @@ export class EtudiantEffects {
       ofType(actions.loadEtudiants),
       mergeMap((action) => this.etudiantService.getEtudiants(action.numeroPage, action.capacite)
         .pipe(
-          map(etudiants => actions.loadEtudiantsSuccess({ etudiants: etudiants.body, total: etudiants.headers.get('x-total-count') })),
+          map(etudiants => actions.loadEtudiantsSuccess({ etudiants: etudiants.body.map(et => <any>{...et, id: et['_id']}), total: etudiants.headers.get('x-total-count') })),
           catchError(() => of(actions.loadEtudiantsFailure({ error: 'Erreur' })))
         )
       )

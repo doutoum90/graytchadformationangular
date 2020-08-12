@@ -45,5 +45,4 @@ export class RecuperationDataService {
     return this.http.delete<Etudiant>(`${environment.API}/etudiants/${id}`);
   }
 
-
 }

@@ -21,15 +21,15 @@ export class AuthentificationService {
   }
 
   connexion(username: string, password: string | Int32Array): Observable<User[]> {
-    return this.http.get<User[]>(`${environment.API}/users?username=${username}&password=${password}`);
+    return this.http.get<User[]>(`${environment.API}/users/connect?username=${username}&password=${password}`);
   }
   getUserByUsername(username: string): Observable<User[]> {
-    return this.http.get<User[]>(`${environment.API}/users?username=${username}`);
+    return this.http.get<User[]>(`${environment.API}/users/getuser?username=${username}`);
   }
   inscription(user: User): Observable<User> {
-    return this.http.post<User>(`${environment.API}/users`, user);
+    return this.http.post<User>(`${environment.API}/users/inscription`, user);
   }
   modifierMdp(id: number | string, user: User): Observable<User> {
-    return this.http.put<User>(`${environment.API}/users/${id}`, user)
+    return this.http.put<User>(`${environment.API}/users/changer/${id}`, user)
   }
 }

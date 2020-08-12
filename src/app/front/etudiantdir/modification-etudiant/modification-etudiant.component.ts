@@ -23,7 +23,7 @@ export class ModificationEtudiantComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.dispatch(loadEtudiant({ id: Number(this.activated.snapshot.params.id) }));
+    this.store.dispatch(loadEtudiant({ id: this.activated.snapshot.params.id }));
     this.modificationFormulaire = this.formBuilder.group({
       id: this.formBuilder.control(''),
       nom: this.formBuilder.control(''),

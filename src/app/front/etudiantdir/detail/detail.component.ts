@@ -18,7 +18,7 @@ export class DetailComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.store.dispatch(loadEtudiant({ id: Number(this.activated.snapshot.params.id) }));
+    this.store.dispatch(loadEtudiant({ id: this.activated.snapshot.params.id }));
     this.etudiant$ = this.store.pipe(select(selectFeatureEtudiant))
   }
 
