@@ -82,4 +82,6 @@
 
 ## [Leçon 40: Les animations](docs/lecon40.md)
 
-## [Leçon 41: [Backend avec nestjs](https://github.com/nestjs/ng-universal)](docs/lecon41.md)
+## [Leçon 41: Backend avec nestjs](docs/lecon41.md)
+
+## [Leçon 42: API nestjs avec une base de données mongodb](docs/lecon42.md)
