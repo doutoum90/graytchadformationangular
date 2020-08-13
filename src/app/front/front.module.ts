@@ -14,6 +14,20 @@ import { UsersModule } from './users/users.module';
 import { AdminModule } from '../admin/admin.module';
 import { FrontComponent } from './front/front.component';
 import { FrontRoutingModule } from './front-routing.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+const firebaseConfig = {
+  apiKey: "AIzaSyDAEz4aO0tkY-4IOkJ-WNF7h5pvWOZmQUg",
+  authDomain: "giraytchad-tchad.firebaseapp.com",
+  databaseURL: "https://giraytchad-tchad.firebaseio.com",
+  projectId: "giraytchad-tchad",
+  storageBucket: "giraytchad-tchad.appspot.com",
+  messagingSenderId: "122861333274",
+  appId: "1:122861333274:web:92b288c6fb527fdcf6daa3",
+  measurementId: "G-RM60ENNMTG"
+};
 
 @NgModule({
   declarations: [
@@ -34,6 +48,10 @@ import { FrontRoutingModule } from './front-routing.module';
     HomeModule,
     UsersModule,
     AdminModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule // storage
   ]
 })
 export class FrontModule { }

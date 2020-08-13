@@ -20,6 +20,7 @@ export class InscriptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.inscriptionFormulaire = new FormGroup({
+      mail: new FormControl('', [Validators.required, Validators.email]),
       username: new FormControl('', [Validators.required, Validators.pattern("^[A-Za-z]+$"), Validators.maxLength(10), Validators.minLength(3)]),
       password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,40}$')]),
       passwordConfirm: new FormControl(''),
@@ -29,7 +30,11 @@ export class InscriptionComponent implements OnInit {
 
   inscription() {
     if (this.inscriptionFormulaire.valid) {
-      const user: User = { username: this.username.value, password: Md5.hashStr(this.password.value) };
+      const user: User = {
+        mail: this.mail.value,
+        username: this.username.value,
+        password: Md5.hashStr(this.password.value)
+      };
       this.store.dispatch(createUser({ user }));
     }
   }
@@ -43,6 +48,9 @@ export class InscriptionComponent implements OnInit {
 
   get username() {
     return this.inscriptionFormulaire.get('username');
+  }
+  get mail() {
+    return this.inscriptionFormulaire.get('mail');
   }
   get password() {
     return this.inscriptionFormulaire.get('password');

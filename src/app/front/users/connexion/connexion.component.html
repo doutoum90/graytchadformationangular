@@ -13,25 +13,19 @@
             <form (ngSubmit)="connexion()" [formGroup]="connexionFormulaire">
 
                 <div class="form-group">
-                    <label for="inputUserName">Nom d'utilisateur</label>
-                    <input type="text" class="form-control" name="inputUserName" class="form-control"
-                        [class.is-valid]="username.touched && !username.errors"
-                        [class.is-invalid]="username.touched && username.errors" name="inputUserName"
-                        formControlName="username">
-                    <div *ngIf="username.invalid && username.touched">
-                        <p class="text-danger" *ngIf="username.errors?.required">
-                            Le nom d'utilisateur est obligatoire !!
-                        </p>
-                        <p class="text-danger" *ngIf="username.errors?.minlength">
-                            Il faut au moins trois caracteres pour le username
-                        </p>
-                        <p class="text-danger" *ngIf="username.errors?.maxlength">
-                            Il faut au plus 10 caracteres pour le username
-                        </p>
-                        <p class="text-danger" *ngIf="username.errors?.pattern">
-                            Les caracteres acceptés sont uniquement des lettres majuscules et miniscules.
-                        </p>
-                    </div>
+                    <label for="inputEmail">Email</label>
+                    <input type="text" class="form-control" name="inputEmail" class="form-control"
+                        [class.is-valid]="mail.touched && !mail.errors"
+                        [class.is-invalid]="mail.touched && mail.errors" name="inputmail"
+                        formControlName="mail">
+                        <div *ngIf="mail.invalid && mail.touched">
+                            <p class="text-danger" *ngIf="mail.errors?.required">
+                                Le nom d'utilisateur est obligatoire !!
+                            </p>
+                            <p class="text-danger" *ngIf="mail.errors?.email">
+                                Format de mail incorrect
+                            </p>
+                        </div>
                 </div>
 
                 <div class="form-group">

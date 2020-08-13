@@ -15,9 +15,9 @@ export class UsersEffects {
   createUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.createUser),
-      concatMap((action) => this.userService.inscription(action.user)
+      concatMap((action) => of(this.userService.inscription(action.user))
         .pipe(
-          map((user: User) => fromActions.createUserSuccess({ user })),
+          map((user) => fromActions.createUserSuccess({ user })),
           catchError(() => of(fromActions.createUserFailure({ erreur: 'Erreur' })))
         )
       ),
@@ -27,25 +27,23 @@ export class UsersEffects {
   authenticateUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.authenticateUser),
-      concatMap((action) => this.userService.connexion(action.username, action.password)
-        .pipe(
-          map((users: User[]) => {
-            if (users.length == 0) {
-              return fromActions.authenticateUserFailure({ erreur: 'erreurConnexion' });
-            } else {
-              return fromActions.authenticateUserSuccess({ users });
-            }
-          }),
-          catchError(() => of(fromActions.authenticateUserFailure({ erreur: 'Erreur' })))
-        )
-      ),
+      map(async (action) => {
+        return this.userService.connexion(action.mail, action.password).then(v => {
+          console.log(v)
+          return fromActions.authenticateUserSuccess({ users: v })
+        }).catch(err => {
+          console.log("giraytchad@1ABC")
+          of(fromActions.authenticateUserFailure({ erreur: 'Erreur' }))
+        })
+      }),
       tap((action: any) => {
         if (action.erreur !== 'erreurConnexion') {
-          this.userService.connect(action.users[0]);
+          // this.userService.connect(action.users[0]);
           this.router.navigate(['list']);
         }
       })
-    )
+    ),
+    { dispatch: false }
   );
 
   changePassword$ = createEffect(() =>

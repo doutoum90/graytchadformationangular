@@ -8,7 +8,7 @@ export const createUser = createAction(
 
 export const createUserSuccess = createAction(
   '[Users]  create User Success',
-  props<{ user: User }>()
+  props<{ user: any }>()
 );
 
 export const createUserFailure = createAction(
@@ -18,12 +18,12 @@ export const createUserFailure = createAction(
 
 export const authenticateUser = createAction(
   '[Users]  authenticate User',
-  props<{ username: string, password: string | Int32Array }>()
+  props<{ mail: string, password: string | Int32Array }>()
 );
 
 export const authenticateUserSuccess = createAction(
   '[Users]  authenticate User Success',
-  props<{ users: User[] }>()
+  props<{ users: any }>()
 );
 
 export const authenticateUserFailure = createAction(

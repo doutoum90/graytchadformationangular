@@ -21,7 +21,7 @@ export class ConnexionComponent implements OnInit {
   ngOnInit(): void {
     this.err$ = this.store.pipe(select(v => v.users.erreur))
     this.connexionFormulaire = new FormGroup({
-      username: new FormControl('', [Validators.required, Validators.pattern("^[A-Za-z]+$"), Validators.maxLength(10), Validators.minLength(3)]),
+      mail: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('',
         [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,40}$')]
       ),
@@ -30,13 +30,13 @@ export class ConnexionComponent implements OnInit {
 
   connexion() {
     if (this.connexionFormulaire.valid) {
-      this.store.dispatch(authenticateUser({ username: this.username.value, password: Md5.hashStr(this.password.value) }));
+      this.store.dispatch(authenticateUser({ mail: this.mail.value, password: this.password.value }));
     }
 
   }
 
-  get username() {
-    return this.connexionFormulaire.get('username');
+  get mail() {
+    return this.connexionFormulaire.get('mail');
   }
 
   get password() {
