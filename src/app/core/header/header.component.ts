@@ -3,6 +3,7 @@ import { HeaderService, IHeader } from '../../services/header.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthentificationService } from 'src/app/services/authentification.service';
+import { take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'gray-header',
@@ -16,14 +17,17 @@ export class HeaderComponent implements OnInit {
   constructor(
     private readonly headerS: HeaderService,
     private readonly router: Router,
-    private readonly auth: AuthentificationService) { }
+    public readonly auth: AuthentificationService) { }
 
   ngOnInit(): void {
     this.header = this.headerS.elementHeader();
   }
 
-  estConnecte(): Boolean {
-    return localStorage.getItem('connecter') === 'true'
+  estConnecte(): Observable<boolean> {
+    return this.auth.user$.pipe(
+      take(1),
+      map(user => user),
+    )
   }
 
   deconnecter() {

@@ -12,7 +12,7 @@ import { User } from 'src/app/models/user.model';
 @Injectable()
 export class UsersEffects {
 
-  createUser$ = createEffect(() =>
+  /* createUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.createUser),
       concatMap((action) => this.userService.inscription(action.user)
@@ -72,7 +72,7 @@ export class UsersEffects {
       })
     ),
     { dispatch: false }
-  );
+  ); */
 
   constructor(
     private readonly actions$: Actions,

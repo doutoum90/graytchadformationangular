@@ -10,6 +10,11 @@ import { StoreModule } from '@ngrx/store';
 import * as fromUsers from './store/reducers/users.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { UsersEffects } from './store/effects/users.effects';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -23,10 +28,12 @@ import { UsersEffects } from './store/effects/users.effects';
     FormsModule,
     ReactiveFormsModule,
     UsersRoutingModule,
+    AngularFireModule.initializeApp(environment.config),
+    AngularFireAuthModule,
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
     StoreModule.forFeature(fromUsers.usersFeatureKey, fromUsers.reducer),
     EffectsModule.forFeature([UsersEffects]),
-/*     FontAwesomeModule,
-    HttpClientModule, */
   ],
   exports: []
 })

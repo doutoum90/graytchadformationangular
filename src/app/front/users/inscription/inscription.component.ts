@@ -6,6 +6,8 @@ import { Md5 } from 'ts-md5/dist/md5';
 import { Store } from '@ngrx/store';
 import { UsersFeature } from '../store/reducers/users.reducer';
 import { createUser } from '../store/actions/users.actions';
+import { AuthentificationService } from 'src/app/services/authentification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'gray-inscription',
@@ -16,11 +18,19 @@ export class InscriptionComponent implements OnInit {
   inscriptionFormulaire: FormGroup;
 
 
-  constructor(private readonly store: Store<UsersFeature>) { }
+  constructor(
+    private readonly authService: AuthentificationService,
+    private readonly router : Router
+    // private readonly store: Store<UsersFeature>
+    ) { }
 
   ngOnInit(): void {
     this.inscriptionFormulaire = new FormGroup({
-      username: new FormControl('', [Validators.required, Validators.pattern("^[A-Za-z]+$"), Validators.maxLength(10), Validators.minLength(3)]),
+      email: new FormControl('', [Validators.required, 
+        // Validators.pattern("^[A-Za-z]+$"), 
+        Validators.email,
+        // Validators.maxLength(10), Validators.minLength(3)
+      ]),
       password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,40}$')]),
       passwordConfirm: new FormControl(''),
     }, verification());
@@ -29,8 +39,9 @@ export class InscriptionComponent implements OnInit {
 
   inscription() {
     if (this.inscriptionFormulaire.valid) {
-      const user: User = { username: this.username.value, password: Md5.hashStr(this.password.value) };
-      this.store.dispatch(createUser({ user }));
+      const user: User = { email: this.email.value, password: Md5.hashStr(this.password.value) };
+      this.authService.inscription(user).then(v=> this.router.navigate(['users/connexion']));
+     // this.store.dispatch(createUser({ user }));
     }
   }
   estValide(name: string): boolean {
@@ -41,8 +52,8 @@ export class InscriptionComponent implements OnInit {
     return this.inscriptionFormulaire.get('passwordConfirm');
   }
 
-  get username() {
-    return this.inscriptionFormulaire.get('username');
+  get email() {
+    return this.inscriptionFormulaire.get('email');
   }
   get password() {
     return this.inscriptionFormulaire.get('password');

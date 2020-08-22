@@ -8,23 +8,17 @@
             <form (ngSubmit)="inscription()" [formGroup]="inscriptionFormulaire">
 
                 <div class="form-group">
-                    <label for="inputUserName">Nom d'utilisateur (*) </label>
-                    <input type="text" class="form-control" [class.is-valid]="username.touched && !username.errors"
-                        [class.is-invalid]="username.touched && username.errors" name="inputUserName"
-                        formControlName="username" aria-describedby="inputUserNameAide">
+                    <label for="inputemail">Nom d'utilisateur (*) </label>
+                    <input type="text" class="form-control" [class.is-valid]="email.touched && !email.errors"
+                        [class.is-invalid]="email.touched && email.errors" name="inputemail" formControlName="email"
+                        aria-describedby="inputemailAide">
 
-                    <div *ngIf="username.invalid && username.touched">
-                        <p class="text-danger" *ngIf="username.errors?.required">
-                            Le nom d'utilisateur est obligatoire !!
+                    <div *ngIf="email.invalid && email.touched">
+                        <p class="text-danger" *ngIf="email.errors?.required">
+                            L'email est obligatoire !!
                         </p>
-                        <p class="text-danger" *ngIf="username.errors?.minlength">
-                            Il faut au moins trois caracteres pour le username
-                        </p>
-                        <p class="text-danger" *ngIf="username.errors?.maxlength">
-                            Il faut au plus 10 caracteres pour le username
-                        </p>
-                        <p class="text-danger" *ngIf="username.errors?.pattern">
-                            Les caracteres acceptés sont uniquement des lettres majuscules et miniscules.
+                        <p class="text-danger" *ngIf="email.errors?.email">
+                            format d'email incorrecte
                         </p>
                     </div>
                 </div>

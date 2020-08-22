@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthentificationService } from '../../services/authentification.service';
+import { take, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +14,24 @@ export class AuthentificationGuard implements CanActivate {
     private readonly auth: AuthentificationService
   ) {
   }
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {  
-    if (localStorage.getItem('connecter') !== 'true')
-      this.router.navigate(['users/connexion']);
-    return localStorage.getItem('connecter') === 'true';
+  canActivate(): boolean {
+    return !!localStorage.getItem('user');
+    /*  const user = JSON.parse(localStorage.getItem('user'));
+     console.log(user);
+
+     return localStorage.
+     return this.auth.user$.pipe(
+       take(1),
+       map(user =>  !!user),
+       tap((loggedIn: boolean)=> {
+         if(!loggedIn){
+           this.router.navigate(['users/connexion'])
+         }
+       })
+     )
+   } */
+
+
   }
 
 }
