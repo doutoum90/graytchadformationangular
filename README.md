@@ -89,3 +89,5 @@
 ## [Leçon 43: Deployer l'api sur firebase](docs/lecon43.md)
 
 ## [Leçon 44: Deployer l'application sur firebase](docs/lecon44.md)
+
+## [Leçon 45:  L'api firebase authentication](docs/lecon45.md)
