@@ -2,66 +2,25 @@
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-            <pre>
-                {{err$ | async| json}}
-            </pre>
+            <div *ngIf="afficheMessage">
+                {{afficheMessage}}
+            </div>
             <h5>Changement de mot de passe</h5>
             <form (ngSubmit)="changer()" [formGroup]="changementFormulaire">
 
                 <div class="form-group">
-                    <label for="inputUserName">Nom d'utilisateur (*) </label>
-                    <input type="text" class="form-control" [class.is-valid]="username.touched && !username.errors"
-                        [class.is-invalid]="username.touched && username.errors" name="inputUserName"
-                        formControlName="username" aria-describedby="inputUserNameAide">
-
-                    <div *ngIf="username.invalid && username.touched">
-                        <p class="text-danger" *ngIf="username.errors?.required">
-                            Le nom d'utilisateur est obligatoire !!
+                    <label for="inputemail">Votre email</label>
+                    <input type="text" class="form-control" name="inputemail" class="form-control"
+                        [class.is-valid]="email.touched && !email.errors"
+                        [class.is-invalid]="email.touched && email.errors" name="inputemail" formControlName="email">
+                    <div *ngIf="email.invalid && email.touched">
+                        <p class="text-danger" *ngIf="email.errors?.required">
+                            L'email est obligatoire !!
                         </p>
-                        <p class="text-danger" *ngIf="username.errors?.minlength">
-                            Il faut au moins trois caracteres pour le username
-                        </p>
-                        <p class="text-danger" *ngIf="username.errors?.maxlength">
-                            Il faut au plus 10 caracteres pour le username
-                        </p>
-                        <p class="text-danger" *ngIf="username.errors?.pattern">
-                            Les caracteres acceptés sont uniquement des lettres majuscules et miniscules.
+                        <p class="text-danger" *ngIf="email.errors?.email">
+                            format d'email incorrecte
                         </p>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputPassword">Mot de passe (*) </label>
-                    <input type="password" class="form-control" name="inputPassword"
-                        [class.is-valid]="password.touched && !password.errors"
-                        [class.is-invalid]="password.touched && password.errors" formControlName="password">
-                    <div *ngIf="password.invalid && password.touched">
-                        <p class="text-danger" *ngIf="password.errors?.required">
-                            Le mot de passe est obligatoire !!!
-                        </p>
-                        <div class="text-danger" *ngIf="password.errors?.pattern">
-                            Le mot doit être d'une longueur de 8 caracteres et contenir
-                            <ul>
-                                <li>une lettre majuscule</li>
-                                <li>une lettre majuscule</li>
-                                <li>un chiffre</li>
-                                <li>un caracteres spécial</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputPasswordConfirm">Valider votre Mot de passe (*)</label>
-                    <input type="password" class="form-control"
-                        [class.is-valid]="passwordConfirm.touched && !passwordConfirm.errors"
-                        [class.is-invalid]="passwordConfirm.touched && passwordConfirm.errors"
-                        formControlName="passwordConfirm" name="inputPasswordConfirm">
-
-                    <p class="text-danger"
-                        *ngIf="passwordConfirm.touched && changementFormulaire.errors?.validationmdp">
-                        Les mots de passe ne matchent pas !!!
-                    </p>
                 </div>
 
                 <button [disabled]="changementFormulaire.invalid" type="submit"

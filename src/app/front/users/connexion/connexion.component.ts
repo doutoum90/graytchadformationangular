@@ -40,16 +40,10 @@ export class ConnexionComponent implements OnInit {
 
   connexion() {
     if (this.connexionFormulaire.valid) {
-      console.log("hallo");
       this.authService.connexion(this.email.value, Md5.hashStr(this.password.value))
-        .then(v => {
-          // traitement
-          console.log(1);
-          this.router.navigate(['list']);
-        })
+        .then(v => this.router.navigate(['list']))
         .catch(err => {
           // traitement erreur
-          console.log(2);
           switch (err.code) {
             case 'auth/wrong-password': {
               this.erreurConnexion = { message: 'mot de passe incorrecte' };

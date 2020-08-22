@@ -16,9 +16,7 @@ export class AuthentificationGuard implements CanActivate {
   }
   canActivate(): boolean {
     return !!localStorage.getItem('user');
-    /*  const user = JSON.parse(localStorage.getItem('user'));
-     console.log(user);
-
+    /*
      return localStorage.
      return this.auth.user$.pipe(
        take(1),

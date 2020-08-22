@@ -12,6 +12,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class AuthentificationService {
   user$: Observable<any>;
+  userRef: AngularFirestoreDocument<User> ;
   constructor(private http: HttpClient,
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore) {
@@ -37,16 +38,15 @@ export class AuthentificationService {
   }
 
   private updateUserData(user) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    this.userRef = this.afs.doc(`users/${user.uid}`);
     const data = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL
     };
-    console.log(data)
     localStorage.setItem('user', JSON.stringify(data));
-    return userRef.set(data, { merge: true })
+    return this.userRef.set(data, { merge: true })
   }
   disconnect() {
     /*   localStorage.removeItem('connecter');
@@ -69,7 +69,9 @@ export class AuthentificationService {
     return await this.afAuth.createUserWithEmailAndPassword(user.email, <string>user.password);
     // return this.http.post<User>(`${environment.API}/users/inscription`, user);
   }
-  modifierMdp(id: number | string, user: User): Observable<User> {
-    return this.http.put<User>(`${environment.API}/users/changer/${id}`, user)
+  modifierMdp(email: string) {
+    // this.userRef.updatePassword()
+    return this.afAuth.sendPasswordResetEmail(email)
+    // return this.http.put<User>(`${environment.API}/users/changer/${id}`, user)
   }
 }
