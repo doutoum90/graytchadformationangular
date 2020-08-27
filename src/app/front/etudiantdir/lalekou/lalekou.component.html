@@ -32,7 +32,6 @@
 
             </tbody>
         </table>
-
         <nav aria-label="Page navigation example" class="d-flex justify-content-center">
             <ul *ngIf="(nombreTotal$ |async) as nb" class="pagination">
                 <li class="page-item" [class.disabled]="numeroPage ===1"><button class="page-link"
@@ -58,7 +57,7 @@
 
         <td>
             <fa-icon (click)="supprimer(etudiant.id)" [ngStyle]="{'margin-right': '15px'}" [icon]="iconSuppr"></fa-icon>
-            <fa-icon (click)="modifier(etudiant.id)" [ngStyle]="{'margin-right': '15px'}" [icon]="iconModifier">
+            <fa-icon (click)="modifier(etudiant)" [ngStyle]="{'margin-right': '15px'}" [icon]="iconModifier">
             </fa-icon>
             <fa-icon (click)="detail(etudiant.id)" [icon]="iconZoom"></fa-icon>
         </td>
@@ -72,5 +71,3 @@
         Aucun étudiant trouvé
     </p>
 </ng-template>
-
-

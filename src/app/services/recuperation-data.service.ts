@@ -1,48 +1,63 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 
-import { environment } from 'src/environments/environment';
 import { Etudiant } from '../models/etudiant.model';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { mergeMap, switchMap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecuperationDataService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private afs: AngularFirestore) { }
 
-  getEtudiants(numeroPage: number, capacite: number): Observable<{ body: Array<Etudiant>, headers: any }> {
-    return this.http.get<any>(`${environment.API}/etudiants?_page=${numeroPage}&_limit=${capacite}`,
-      {
-        responseType: 'json',
-        observe: 'response'
-      });
+  getEtudiants(numeroPage: number, capacite: number): Observable<any> {
+    const etudiants$ = this.afs.collection<Etudiant>('etudiants', ref => ref.orderBy('nom').startAt(numeroPage).limit(capacite))
+      .valueChanges();
+    const length$ = this.afs.collection('etudiants').get().pipe(switchMap(snapshot => of(snapshot.docs.length)));
+    return etudiants$.pipe(
+      mergeMap(etudiants => length$.pipe(map(total => <any>{ etudiants, total }))
+      )
+    );
   }
 
   getEtudiantbyName(name: string, numeroPage: number, capacite: number): Observable<any> {
-    return this.http.get<any>(`${environment.API}/etudiants?nom_like${name}_page=${numeroPage}&_limit=${capacite}`,
-      {
-        responseType: 'json',
-        observe: 'response'
-      });
+    const etudiants$ = this.afs.collection<Etudiant>('etudiants', ref => ref.where('nom', '==', name).orderBy('nom').startAt(numeroPage).limit(capacite))
+      .valueChanges();
+    const length$ = this.afs.collection('etudiants').get().pipe(switchMap(snapshot => of(snapshot.docs.length)));
+    return etudiants$.pipe(
+      mergeMap(etudiants => length$.pipe(map(total => <any>{ etudiants, total }))
+      )
+    );
   }
 
-  getEtudiant(id: number): Observable<Etudiant> {
-    return this.http.get<Etudiant>(`${environment.API}/etudiants/${id}`);
+  getEtudiant(id: string): Observable<Etudiant> {
+    return this.afs.doc<Etudiant>(`etudiants/${id}`).valueChanges();
   }
 
 
-  creerEtudiant(donnees: Etudiant): Observable<Etudiant> {
-    return this.http.post<Etudiant>(`${environment.API}/etudiants/`, donnees);
+  creerEtudiant(donnees: Etudiant) {
+    const newid = this.afs.createId();
+    this.afs.collection('etudiants').doc(newid).set({ ...donnees, id: newid });
+    return this.afs.collection('etudiants', ref => ref.where('id', '==', newid)).valueChanges();
   }
 
   mettreAjourEtudiant(id: string | number, donnees: Partial<Etudiant>): Observable<Etudiant> {
-    return this.http.put<Etudiant>(`${environment.API}/etudiants/${id}`, donnees);
+    this.afs.doc<Etudiant>(`etudiants/${id}`).set({
+      nom: donnees.nom,
+      prenom: donnees.prenom,
+      age: donnees.age,
+      dateNaissance: donnees.dateNaissance,
+      fraisSubsistance: donnees.fraisSubsistance,
+      note: donnees.note
+    });
+    return this.afs.doc<Etudiant>(`etudiants/${id}`).valueChanges();
   }
 
-  supprimerEtudiant(id: number): Observable<Etudiant> {
-    return this.http.delete<Etudiant>(`${environment.API}/etudiants/${id}`);
+  supprimerEtudiant(id: string): Observable<Etudiant> {
+    this.afs.doc<Etudiant>(`etudiants/${id}`).delete();
+    return this.afs.doc<Etudiant>(`etudiants/${id}`).valueChanges();
   }
 
 }

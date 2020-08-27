@@ -71,6 +71,7 @@ export class ListStudentComponent implements OnInit, AfterViewInit {
   }
 
   modifier(event) {
+    console.log(event)
     this.router.navigate(['list/modifier', event.id]);
   }
   detail(event) {

@@ -5,18 +5,21 @@ import { mergeMap, map, catchError, concatMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { RecuperationDataService } from 'src/app/services/recuperation-data.service';
 import { Router } from '@angular/router';
+import { Etudiant } from 'src/app/models/etudiant.model';
 
 
 
 @Injectable()
 export class EtudiantEffects {
 
-  loadEtudiants$ = createEffect(() => 
+  loadEtudiants$ = createEffect(() =>
     this.actions$.pipe(
       ofType(actions.loadEtudiants),
       mergeMap((action) => this.etudiantService.getEtudiants(action.numeroPage, action.capacite)
         .pipe(
-          map(etudiants => actions.loadEtudiantsSuccess({ etudiants: etudiants.body.map(et => <any>{...et, id: et['_id']}), total: etudiants.headers.get('x-total-count') })),
+          map(data => {
+            return actions.loadEtudiantsSuccess({ etudiants: data.etudiants, total: data.total })
+          }),
           catchError(() => of(actions.loadEtudiantsFailure({ error: 'Erreur' })))
         )
       )
@@ -37,7 +40,7 @@ export class EtudiantEffects {
     ofType(actions.createEtudiant),
     concatMap((action) => this.etudiantService.creerEtudiant(action.etudiant)
       .pipe(
-        map(etudiant => actions.createEtudiantSuccess({ etudiant })),
+        map((etudiants: Array<Etudiant>) => actions.createEtudiantSuccess({ etudiant: etudiants[0] })),
         catchError(() => of(actions.createEtudiantFailure({ error: 'Erreur' })))
       )
     ),
@@ -49,7 +52,7 @@ export class EtudiantEffects {
 
   updateEtudiant$ = createEffect(() => this.actions$.pipe(
     ofType(actions.updateEtudiant),
-    concatMap((action) => this.etudiantService.mettreAjourEtudiant(action.etudiant.id, action.etudiant.changes)),
+    concatMap((action) => this.etudiantService.mettreAjourEtudiant(action.etudiant.id,  action.etudiant.changes)),
     tap(() => this.router.navigate(['list']))
   ),
     { dispatch: false }

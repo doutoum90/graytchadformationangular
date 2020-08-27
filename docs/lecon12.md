@@ -32,7 +32,7 @@ export  class  RecuperationDataService {
 		return of(this.etudiants);
 	}
 	
-	getEtudiant(id: number): Observable<Etudiant> {
+	getEtudiant(id: string): Observable<Etudiant> {
 		return of(this.etudiants.find(etudiant => etudiant.id === id));
 	}
 }

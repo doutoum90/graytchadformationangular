@@ -38,18 +38,19 @@ export class LalekouComponent {
         })).subscribe((v: any) => console.log(v));
   }
 
-  afficher(path: string, id: number): void {
+  afficher(path: string, id: string): void {
     this.afficheEvent.emit({ path, id });
   }
 
-  supprimer(id: number) {
+  supprimer(id: string) {
     this.supprimeEvent.emit({ id });
   }
 
-  modifier(id: number) {
+  modifier(id: string) {
+    console.log(id);
     this.modifieEvent.emit({ id });
   }
-  detail(id: number) {
+  detail(id: string) {
     this.detailEvent.emit({ id });
   }
   private propager(numeroPage, capacite) {

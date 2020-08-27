@@ -9,7 +9,7 @@ export const loadEtudiants = createAction(
 
 export const loadEtudiantsSuccess = createAction(
   '[Etudiants] Load Etudiants Success',
-  props<{ etudiants: Array<Etudiant>, total: string }>()
+  props<{ etudiants: Array<Etudiant>, total: number }>()
 );
 
 export const loadEtudiantsFailure = createAction(
@@ -20,7 +20,7 @@ export const loadEtudiantsFailure = createAction(
 // charger un etudiant
 export const loadEtudiant = createAction(
   '[Etudiants] Load one Etudiants',
-  props<{ id: number }>()
+  props<{ id: string }>()
 );
 
 export const loadEtudiantSuccess = createAction(
@@ -58,7 +58,7 @@ export const updateEtudiant = createAction(
 // supprimer un etudiant
 export const deleteEtudiant = createAction(
   '[Etudiants] delete one Etudiant',
-  props<{ id: number }>()
+  props<{ id: string }>()
 );
 
 export const deleteEtudiantSuccess = createAction(

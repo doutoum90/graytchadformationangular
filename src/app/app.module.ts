@@ -29,7 +29,9 @@ import { FrontModule } from './front/front.module';
         strictActionImmutability: true,
       }
     }),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    // !environment.production ? 
+    StoreDevtoolsModule.instrument(),
+    // : [],
     EffectsModule.forRoot([])
   ],
   providers: [],
