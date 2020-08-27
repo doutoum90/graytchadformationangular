@@ -56,7 +56,7 @@
 
 ## [Leçon 27: Charger la liste des étudiants avec ngrx/store : Les Effects](docs/lecon27.md)
 
-## [Leçon 28: Optimisation avec les entités:  @ngrx/entity](docs/lecon28.md)
+## [Leçon 28: Optimisation avec les entités: @ngrx/entity](docs/lecon28.md)
 
 ## [Leçon 29: Api rest et HTTP](docs/lecon29.md)
 
@@ -90,4 +90,6 @@
 
 ## [Leçon 44: Deployer l'application sur firebase](docs/lecon44.md)
 
-## [Leçon 45:  L'api firebase authentication](docs/lecon45.md)
+## [Leçon 45: L'api firebase authentication](docs/lecon45.md)
+
+## [Leçon 46: L' api Firebase store](docs/lecon46.md)
