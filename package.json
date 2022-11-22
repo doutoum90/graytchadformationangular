@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "glob-parent": ">=5.1.2",
-    "@angular-devkit/build-angular": "~0.1000.1",
+    "@angular-devkit/build-angular": "~15.0.0",
     "@angular/cli": "~10.0.1",
     "@angular/compiler-cli": "~10.0.2",
     "@ngrx/schematics": "^9.2.0",
